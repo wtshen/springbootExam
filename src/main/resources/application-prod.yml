@@ -1,0 +1,10 @@
+server:
+  port: 8081
+  context-path: /swt
+
+username: "swt"
+userage: 39
+
+userinfo:
+  userName: "SHENWENTAO"
+  userAge: 39

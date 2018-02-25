@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="meminfo")
-public class memInfo {
+public class MemInfo {
     @Id
     @GeneratedValue
     private Integer Id;
@@ -30,10 +30,10 @@ public class memInfo {
         this.name = name;
     }
 
-    public memInfo() {
+    public MemInfo() {
     }
 
-    public memInfo(String name) {
+    public MemInfo(String name) {
 
 
         this.name = name;

@@ -1,6 +1,6 @@
 package com.swt.dao;
 
-import com.swt.model.memInfo;
+import com.swt.model.MemInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by wtshen on 18/2/17.
  */
-public interface memInfoRepository extends JpaRepository<memInfo, Integer> {
+public interface MemInfoRepository extends JpaRepository<MemInfo, Integer> {
 
-    List<memInfo> findByName(String name);
+    List<MemInfo> findByName(String name);
 }

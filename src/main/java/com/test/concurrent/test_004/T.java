@@ -6,7 +6,7 @@ package com.test.concurrent.test_004;
 public class T {
     private static int count = 10;
 
-    // 等同于synchronized(test.concurrent.test_004.T.class)
+    // 等同于synchronized(test.concurrent.test_004.Account.class)
     private synchronized static void m() {
         count--;
         System.out.println(Thread.currentThread().getName() + " count= " + count);

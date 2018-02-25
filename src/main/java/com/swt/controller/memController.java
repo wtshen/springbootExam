@@ -1,7 +1,7 @@
 package com.swt.controller;
 
-import com.swt.model.memInfo;
-import com.swt.service.memService;
+import com.swt.model.MemInfo;
+import com.swt.service.MemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.swt.dao.*;
@@ -12,12 +12,12 @@ import java.util.List;
  * Created by wtshen on 18/2/17.
  */
 @RestController
-public class memController {
+public class MemController {
     @Autowired
-    private memInfoRepository memInfoRepository;
+    private MemInfoRepository memInfoRepository;
 
     @Autowired
-    private memService memService;
+    private MemService MemService;
 
     /**
      * 查询所有用户
@@ -25,7 +25,7 @@ public class memController {
      * @return
      */
     @GetMapping("/memlist")
-    public List<memInfo> memInfoList() {
+    public List<MemInfo> memInfoList() {
         return memInfoRepository.findAll();
     }
 
@@ -36,9 +36,9 @@ public class memController {
      * @return
      */
     @PostMapping("/memadd")
-    public memInfo memAdd(@RequestParam("name") String name) {
-        memInfo memInfo = new memInfo(name);
-        return memInfoRepository.save(memInfo);
+    public MemInfo memAdd(@RequestParam("name") String name) {
+        MemInfo MemInfo = new MemInfo(name);
+        return memInfoRepository.save(MemInfo);
     }
 
     /**
@@ -49,11 +49,11 @@ public class memController {
      * @return
      */
     @PutMapping("/memupdate/{id}")
-    public memInfo memUpdate(@PathVariable("id") Integer id,
+    public MemInfo memUpdate(@PathVariable("id") Integer id,
                              @RequestParam("name") String name) {
-        memInfo memInfo = new memInfo(name);
-        memInfo.setId(id);
-        return memInfoRepository.save(memInfo);
+        MemInfo MemInfo = new MemInfo(name);
+        MemInfo.setId(id);
+        return memInfoRepository.save(MemInfo);
     }
 
     /**
@@ -74,7 +74,7 @@ public class memController {
      * @return
      */
     @GetMapping("/getbyid/{id}")
-    public memInfo getOneMem(@PathVariable("id") Integer id) {
+    public MemInfo getOneMem(@PathVariable("id") Integer id) {
         return memInfoRepository.findOne(id);
     }
 
@@ -85,14 +85,14 @@ public class memController {
      * @return
      */
     @GetMapping("/getbyage/{name}")
-    public List<memInfo> getByAge(@PathVariable("name") String name) {
+    public List<MemInfo> getByAge(@PathVariable("name") String name) {
         return memInfoRepository.findByName(name);
     }
 
     @PostMapping("addtwoMemInfo")
     public void addTwoMemInfo() {
         try {
-            memService.addTwoMemInfo();
+            MemService.addTwoMemInfo();
         } catch (Exception e) {
             e.printStackTrace();
         }

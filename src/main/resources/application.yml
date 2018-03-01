@@ -3,8 +3,8 @@ spring:
     active: prod
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mydb
-    password: Shenwentao001
+    url: jdbc:mysql://127.0.0.1:3306/sampledb?useSSL=false
+    password: root
     username: root
   jpa:
     hibernate:

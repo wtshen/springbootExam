@@ -1,11 +1,16 @@
 package com.swt.controller;
 
+import com.swt.common.exception.Result;
+import com.swt.common.exception.ResultEnum;
+import com.swt.common.exception.ResultUtil;
 import com.swt.model.MemInfo;
 import com.swt.service.MemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import com.swt.dao.*;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,8 +30,13 @@ public class MemController {
      * @return
      */
     @GetMapping("/memlist")
-    public List<MemInfo> memInfoList() {
-        return memInfoRepository.findAll();
+    public Result<List<MemInfo>> memInfoList() {
+        if (CollectionUtils.isEmpty(memInfoRepository.findAll())) {
+            throw new RuntimeException();
+            //return ResultUtil.error(ResultEnum.SQLException_ERROR.getCode(), ResultEnum.SQLException_ERROR.getMsg());
+        } else {
+            return ResultUtil.success();
+        }
     }
 
     /**
@@ -85,16 +95,13 @@ public class MemController {
      * @return
      */
     @GetMapping("/getbyage/{name}")
-    public List<MemInfo> getByAge(@PathVariable("name") String name) {
-        return memInfoRepository.findByName(name);
+    public Result<List<MemInfo>> getByAge(@PathVariable("name") String name) {
+        List<MemInfo> list = memInfoRepository.findByName(name);
+        return ResultUtil.success(list);
     }
 
     @PostMapping("addtwoMemInfo")
     public void addTwoMemInfo() {
-        try {
-            MemService.addTwoMemInfo();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        MemService.addTwoMemInfo();
     }
 }

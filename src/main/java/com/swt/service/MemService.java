@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.swt.dao.*;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
+
 /**
  * Created by wtshen on 18/2/17.
  */
@@ -16,13 +18,13 @@ public class MemService {
     MemInfoRepository memInfoRepository;
 
     @Transactional(rollbackFor = Exception.class)
-    public void addTwoMemInfo() throws Exception {
+    public void addTwoMemInfo() {
         MemInfo meminfo1 = new MemInfo();
         meminfo1.setName("swt10");
         MemInfo result = memInfoRepository.save(meminfo1);
 
         if (result != null) {
-            throw new Exception("add error!");
+            throw new RuntimeException("add error!");
         }
 
         MemInfo meminfo2 = new MemInfo();

@@ -8,3 +8,14 @@ userage: 39
 userinfo:
   userName: "SHENWENTAO"
   userAge: 39
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/sampledb?useSSL=false
+    password: root
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

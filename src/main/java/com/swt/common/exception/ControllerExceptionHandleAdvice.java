@@ -29,21 +29,20 @@ public class ControllerExceptionHandleAdvice {
             res.setStatus(HttpStatus.OK.value());
         }
 
-        if (e instanceof SaveException){
-            logger.error(ResultEnum.SQLException_ERROR.getMsg() + e.getMessage(), e);
+        if (e instanceof SaveException) {
+            logger.error(ResultEnum.SQLException_ERROR.getMsg() + "," + e.getMessage(), e);
             return ResultUtil.error(ResultEnum.SQLException_ERROR.getCode(), "数据库访问异常");
-        }
-        else if (e instanceof NullPointerException) {
-            logger.error(ResultEnum.NullPointerException_ERROR.getMsg() + e.getMessage(), e);
+        } else if (e instanceof NullPointerException) {
+            logger.error(ResultEnum.NullPointerException_ERROR.getMsg() + "," + e.getMessage(), e);
             return ResultUtil.error(ResultEnum.NullPointerException_ERROR.getCode(), "发生空指针异常");
         } else if (e instanceof IllegalArgumentException) {
-            logger.error(ResultEnum.IllegalArgumentException_ERROR.getMsg() + e.getMessage(), e);
-            return ResultUtil.error(ResultEnum.IllegalArgumentException_ERROR.getCode(), "请求参数类型不匹配");
+            logger.warn(ResultEnum.IllegalArgumentException_ERROR.getMsg() + "," + e.getMessage(), e);
+            return ResultUtil.error(ResultEnum.IllegalArgumentException_ERROR.getCode(), "请求参数类型不匹配" + "," + e.getMessage());
         } else if (e instanceof SQLException) {
-            logger.error(ResultEnum.SQLException_ERROR.getMsg() + e.getMessage(), e);
+            logger.error(ResultEnum.SQLException_ERROR.getMsg() + "," + e.getMessage(), e);
             return ResultUtil.error(ResultEnum.SQLException_ERROR.getCode(), "数据库访问异常");
         } else {
-            logger.error(ResultEnum.UNKONW_ERROR.getMsg() + e.getMessage(), e);
+            logger.error(ResultEnum.UNKONW_ERROR.getMsg() + "," + e.getMessage(), e);
             return ResultUtil.error(ResultEnum.UNKONW_ERROR.getCode(), "服务器代码发生异常,请联系管理员");
         }
     }

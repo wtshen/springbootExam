@@ -84,7 +84,7 @@ public class MemController {
      */
     @GetMapping("/getbyid/{id}")
     public MemInfo getOneMem(@PathVariable("id") Integer id) {
-        Preconditions.checkArgument(id > 0);
+        Preconditions.checkArgument(id > 0,"用户ID不能为空");
         return memInfoRepository.findOne(id);
     }
 

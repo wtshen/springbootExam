@@ -5,6 +5,7 @@ import com.swt.common.exception.Result;
 import com.swt.common.exception.ResultUtil;
 import com.swt.dao.MemInfoRepository;
 import com.swt.model.MemInfo;
+import com.swt.model.User;
 import com.swt.service.MemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
@@ -22,6 +23,9 @@ public class MemController {
 
     @Autowired
     private MemService MemService;
+
+    @Autowired
+    private User user;
 
     /**
      * 查询所有用户
@@ -84,6 +88,10 @@ public class MemController {
      */
     @GetMapping("/getbyid/{id}")
     public MemInfo getOneMem(@PathVariable("id") Integer id) {
+
+        user.setAge(30);
+        System.out.println(user);
+
         Preconditions.checkArgument(id > 0,"用户ID不能为空");
         return memInfoRepository.findOne(id);
     }

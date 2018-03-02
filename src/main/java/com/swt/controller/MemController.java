@@ -1,16 +1,15 @@
 package com.swt.controller;
 
+import com.google.common.base.Preconditions;
 import com.swt.common.exception.Result;
-import com.swt.common.exception.ResultEnum;
 import com.swt.common.exception.ResultUtil;
+import com.swt.dao.MemInfoRepository;
 import com.swt.model.MemInfo;
 import com.swt.service.MemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import com.swt.dao.*;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,7 +32,7 @@ public class MemController {
     public Result<List<MemInfo>> memInfoList() {
         if (CollectionUtils.isEmpty(memInfoRepository.findAll())) {
             throw new RuntimeException();
-            //return ResultUtil.error(ResultEnum.SQLException_ERROR.getCode(), ResultEnum.SQLException_ERROR.getMsg());
+            //return ResultUtil.error(ResultEnum.SQLException_ERROR.getCode(), ResultEnum.SQLException_ERROR.getMessage());
         } else {
             return ResultUtil.success();
         }
@@ -85,6 +84,7 @@ public class MemController {
      */
     @GetMapping("/getbyid/{id}")
     public MemInfo getOneMem(@PathVariable("id") Integer id) {
+        Preconditions.checkArgument(id > 0);
         return memInfoRepository.findOne(id);
     }
 

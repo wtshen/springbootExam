@@ -29,7 +29,11 @@ public class ControllerExceptionHandleAdvice {
             res.setStatus(HttpStatus.OK.value());
         }
 
-        if (e instanceof NullPointerException) {
+        if (e instanceof SaveException){
+            logger.error(ResultEnum.SQLException_ERROR.getMsg() + e.getMessage(), e);
+            return ResultUtil.error(ResultEnum.SQLException_ERROR.getCode(), "数据库访问异常");
+        }
+        else if (e instanceof NullPointerException) {
             logger.error(ResultEnum.NullPointerException_ERROR.getMsg() + e.getMessage(), e);
             return ResultUtil.error(ResultEnum.NullPointerException_ERROR.getCode(), "发生空指针异常");
         } else if (e instanceof IllegalArgumentException) {

@@ -36,7 +36,7 @@ public class Account {
 
     public static void main(String[] args) {
         Account account = new Account();
-        new Thread(() -> account.set("zhangsan", 100.0), "Thread Set ").start();
+        new Thread(() -> account.set("zhangsan", 100.0), "ThreadSampleSample Set ").start();
 
         try {
             TimeUnit.SECONDS.sleep(1);

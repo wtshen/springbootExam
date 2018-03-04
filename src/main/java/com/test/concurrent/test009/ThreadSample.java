@@ -4,7 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: wtshen
- * @Description: 1.一个同步方法可以调用另外一个同步方法
+ * @Description:
+ * 1.一个同步方法可以调用另外一个同步方法
  * 2.一个线程已经拥有某个对象的锁,再次申请的时候仍然会得到该对象的锁
  * 也就是说:synchronized获得的锁是可以重入的
  * @Date: Created in 上午11:15 18/3/4.

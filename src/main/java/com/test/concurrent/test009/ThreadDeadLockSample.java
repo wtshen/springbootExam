@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 下午12:01 18/3/4.
  * @Modified By:
  */
-public class ThreadDeadLock {
+public class ThreadDeadLockSample {
     Object o1 = new Object();
     Object o2 = new Object();
 
@@ -60,13 +60,13 @@ public class ThreadDeadLock {
     }
 
     public static void main(String[] args) {
-        ThreadDeadLock threadDeadLock = new ThreadDeadLock();
+        ThreadDeadLockSample threadDeadLockSample = new ThreadDeadLockSample();
         // 主线程运行没问题,因为是顺序执行
-        threadDeadLock.m1();
-        threadDeadLock.m2();
+        //threadDeadLockSample.m1();
+        //threadDeadLockSample.m2();
 
         // 多线程运行时产生死锁
-        new Thread(threadDeadLock::m1, "thread1").start();
-        new Thread(threadDeadLock::m2, "thread2").start();
+        new Thread(threadDeadLockSample::m1, "thread1").start();
+        new Thread(threadDeadLockSample::m2, "thread2").start();
     }
 }

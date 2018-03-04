@@ -27,6 +27,7 @@ public class Account {
     }
 
     // 解决方法就是get方法也加上 synchronized
+    // 因为读写方法锁定同一对象,必须要等写的锁释放后,才能够获取锁进行读操作
     private /*synchronized*/ double getBalance(String name) {
         return this.balance;
     }

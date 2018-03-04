@@ -1,9 +1,12 @@
-package com.test.concurrent.test_005;
+package com.test.concurrent.test005;
 
 /**
- * Created by wtshen on 18/2/25.
+ * @Author: wtshen
+ * @Description: synchronized 关键字,对某个对象加锁
+ * @Date: Created in 上午11:15 18/3/4.
+ * @Modified By:
  */
-public class T implements Runnable {
+public class ThreadSample implements Runnable {
 
     private int count = 10;
 
@@ -16,9 +19,9 @@ public class T implements Runnable {
     }
 
     public static void main(String[] args) {
-        T t = new T();
+        ThreadSample threadSample = new ThreadSample();
         for (int i = 0; i < 5; i++) {
-            new Thread(t, "thread:" + i).start();
+            new Thread(threadSample, "thread:" + i).start();
         }
     }
 }

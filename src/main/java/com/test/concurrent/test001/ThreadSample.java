@@ -1,9 +1,12 @@
-package com.test.concurrent.test_001;
+package com.test.concurrent.test001;
 
 /**
- * Created by wtshen on 18/2/25.
+ * @Author: wtshen
+ * @Description:
+ * @Date: Created in 上午11:15 18/3/4.
+ * @Modified By:
  */
-public class T {
+public class ThreadSample {
     private int count = 10;
     private Object o = new Object();
 
@@ -15,7 +18,7 @@ public class T {
     }
 
     public static void main(String[] args){
-        T t = new T();
-        t.m();
+        ThreadSample threadSample = new ThreadSample();
+        threadSample.m();
     }
 }

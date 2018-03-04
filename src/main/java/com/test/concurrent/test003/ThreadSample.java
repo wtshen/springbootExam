@@ -1,9 +1,12 @@
-package com.test.concurrent.test_003;
+package com.test.concurrent.test003;
 
 /**
- * Created by wtshen on 18/2/25.
+ * @Author: wtshen
+ * @Description: synchronized 关键字,对某个对象加锁
+ * @Date: Created in 上午11:15 18/3/4.
+ * @Modified By:
  */
-public class T {
+public class ThreadSample {
     private int count = 10;
 
     private synchronized void m() { // 等同于在方法的代码执行时候要synchronized(this)
@@ -12,7 +15,7 @@ public class T {
     }
 
     public static void main(String[] args){
-        T t = new T();
-        t.m();
+        ThreadSample threadSample = new ThreadSample();
+        threadSample.m();
     }
 }

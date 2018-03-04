@@ -1,10 +1,12 @@
-package com.test.concurrent.test_006;
+package com.test.concurrent.test007;
 
 /**
- * 同步和非同步方法是否可以同时调用?
- * Created by wtshen on 18/2/25.
+ * @Author: wtshen
+ * @Description: 同步和非同步方法是否可以同时调用?
+ * @Date: Created in 上午11:15 18/3/4.
+ * @Modified By:
  */
-public class T {
+public class ThreadSample {
     private synchronized void m1() {
         System.out.println(Thread.currentThread().getName() + " m1 start...");
 
@@ -30,11 +32,11 @@ public class T {
     }
 
     public static void main(String[] args) {
-        T t = new T();
-        new Thread(t::m1, "t1").start();
-        new Thread(t::m2, "t2").start();
+        ThreadSample threadSample = new ThreadSample();
+        new Thread(threadSample::m1, "t1").start();
+        new Thread(threadSample::m2, "t2").start();
 
-        new Thread(() -> t.m1(), "t3").start();
-        new Thread(() -> t.m2(), "t4").start();
+        new Thread(() -> threadSample.m1(), "t3").start();
+        new Thread(() -> threadSample.m2(), "t4").start();
     }
 }

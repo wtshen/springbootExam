@@ -1,12 +1,14 @@
-package com.test.concurrent.test_007;
-
+package com.test.concurrent.test008;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * @Author: wtshen
+ * @Description:
  * 对业务写方法加锁
  * 对业务读方法不加锁
  * 容易产生脏读问题(dirtyRead)
- * Created by wtshen on 18/2/26.
+ * @Date: Created in 上午11:15 18/3/4.
+ * @Modified By:
  */
 public class Account {
     private String name;

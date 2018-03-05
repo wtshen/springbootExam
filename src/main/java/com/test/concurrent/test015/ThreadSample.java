@@ -17,6 +17,7 @@ public class ThreadSample {
 
     void m() {
         for (int i = 0; i < 10000; i++) {
+            // if (count.get()<1000) 和下面这句一起使用时候则不保证院子性
             count.incrementAndGet();
         }
     }

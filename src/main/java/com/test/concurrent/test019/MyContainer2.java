@@ -56,7 +56,7 @@ public class MyContainer2 {
         Thread thread1 = new Thread(() -> {
             synchronized (lock) {
                 for (int i = 0; i < 10; i++) {
-                    myContainer2.lists.add(i);
+                    myContainer2.add(i);
                     try {
                         TimeUnit.SECONDS.sleep(1);
                     } catch (InterruptedException e) {

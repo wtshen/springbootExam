@@ -40,6 +40,7 @@ public class MyContainer2 {
                         e.printStackTrace();
                     }
                 }
+                // 通知t1继续执行
                 // lock.notify();
                 System.out.println(Thread.currentThread().getName() + " end");
             }

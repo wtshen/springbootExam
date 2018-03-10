@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
  * @Author: wtshen
  * @Description: volatile 关键字,是一个变量在多个线程中可见
  * A B 线程都用到一个变量,java默认是A线程中保留一份copy,如果B线程修改该变量后,则A线程未必知道
- * 使用volatile关键字,会让所有线程都会督导变量的修改值
+ * 使用volatile关键字,会强制所有线程都去堆内存中读取值
  * @Date: Created in 下午6:31 18/3/4.
  * @Modified By:
  */

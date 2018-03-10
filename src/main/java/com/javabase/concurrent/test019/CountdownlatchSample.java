@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  * CountDownLatch不涉及锁定,当count值为0时当前线程继续运行
  * 当不涉及同步,只是涉及线程通信的时候,用synchronized+wait notify就显得太重了
  * 这是应该考虑countdownlatch/cyclicbarrier/semaphore
+ * 使用场景:一个线程A等待其它线程都执行完毕后，这个线程A才继续执行
  * @Date: Created in 下午11:44 18/3/8.
  * @Modified By:
  */

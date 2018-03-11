@@ -1,7 +1,5 @@
 package com.javabase.concurrent.test021;
 
-import com.javabase.collection.UserInfo;
-
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 下午10:52 18/3/10.
  * @Modified By:
  */
-public class MyContainer1<T> {
+public class WaitNofityContainer<T> {
     final private LinkedList<T> lists = new LinkedList<>();
     final private static Integer CONTAINER_MAX_COUNT = 10;
 
@@ -48,7 +46,7 @@ public class MyContainer1<T> {
     }
 
     public static void main(String[] args) {
-        MyContainer1<Integer> myContainer = new MyContainer1<>();
+        WaitNofityContainer<Integer> myContainer = new WaitNofityContainer<>();
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 for (int i1 = 0; i1 < 5; i1++) {

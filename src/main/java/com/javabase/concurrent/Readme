@@ -14,7 +14,10 @@ synchronized
 6.线程间通讯:
     wait notify --必须先加锁,再使用
     ountdownlatch/cyclicbarrier/semaphore
-7.高并发主要3块知识点
+7.ReentrantLock和synchronized的区别
+    1.比后者灵活,可进行tryLock,根据返回的锁定状态,实现自己的业务逻辑
+    2.synchronized是竞争锁（效率高）,ReentrantLock可以指定公平锁
+8.高并发主要3块知识点
     synchronizer 线程间同步,通讯
     同步容器
     threadpool\executor\callable\feature

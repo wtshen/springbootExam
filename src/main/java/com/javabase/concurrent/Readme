@@ -22,4 +22,9 @@ synchronized
         synchronized wait notifyall
         Lock ReentrantLock Condition await signalAll
     并发容器
+        Hashtable 所有实现都带锁,锁定整个对象
+        ConcurrentHashMap
+            JDK1.7将map分成16段,每次只锁定其中一段,效率比HashTable高
+            JDK1.8采用Node+CAS+Synchronized保证并发安全实现
+        ConcurrentSkipList
     threadpool\executor\callable\feature

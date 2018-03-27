@@ -22,7 +22,7 @@ synchronized
         synchronized wait notifyall
         Lock ReentrantLock Condition await signalAll
     二.并发容器
-        1.map/set使用
+        1.map/set使用（map是<key,value>,set是<key>）
         不使用多线程的时候:
             HashMap
             TreeMap

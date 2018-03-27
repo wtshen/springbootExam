@@ -15,21 +15,31 @@ import java.util.concurrent.CountDownLatch;
  * @Modified By:
  */
 public class ConcurrentMap {
-    public static void main(String[] args) {
-        //Map<String,String> map = new ConcurrentHashMap<>();
-        //Map<String,String> map = new ConcurrentSkipListMap<>();
-        //Map<String,String> map = new HashMap<>();
-        Map<String, String> map = new Hashtable<>();
+    private static final Integer MAX_THREAD_COUNT = 100;
+    private static final Integer MAX_ELEMENT_COUNT = 10000;
 
-        CountDownLatch latch = new CountDownLatch(100);
-        Thread[] ths = new Thread[100];
+    public static void main(String[] args) {
+        Map<String, String> map = new ConcurrentHashMap<>(MAX_THREAD_COUNT * MAX_ELEMENT_COUNT);
+
+        // 高并发并且排序,插入效率低,查询效率高
+        //Map<String,String> map = new ConcurrentSkipListMap<>();
+
+        //Map<String,String> map = new HashMap<>();
+
+        //Map<String, String> map = new Hashtable<>();
+
+        // 插入式效率低
+        //TreeMap map = new TreeMap();
+
+        CountDownLatch latch = new CountDownLatch(MAX_THREAD_COUNT);
+        Thread[] ths = new Thread[MAX_THREAD_COUNT];
         Random random = new Random();
 
         LocalDateTime start = LocalDateTime.now();
         for (int i = 0; i < ths.length; i++) {
             ths[i] = new Thread(() -> {
-                for (int i1 = 0; i1 < 10000; i1++) {
-                    map.put("a" + random.nextInt(100000), "a" + random.nextInt(100000));
+                for (int i1 = 0; i1 < MAX_ELEMENT_COUNT; i1++) {
+                    map.put("a" + random.nextInt(MAX_ELEMENT_COUNT), "a" + random.nextInt(MAX_ELEMENT_COUNT));
                 }
                 latch.countDown();
             });

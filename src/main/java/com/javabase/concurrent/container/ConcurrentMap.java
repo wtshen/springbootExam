@@ -28,7 +28,7 @@ public class ConcurrentMap {
 
         //Map<String, String> map = new Hashtable<>();
 
-        // 插入式效率低
+        // 插入时效率低
         //TreeMap map = new TreeMap();
 
         CountDownLatch latch = new CountDownLatch(MAX_THREAD_COUNT);

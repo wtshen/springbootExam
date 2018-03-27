@@ -18,6 +18,7 @@ public class LinkedBlockingQueue {
         new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 try {
+                    // 如果满了就会等待
                     queue.put("a" + i);
                     TimeUnit.MILLISECONDS.sleep(random.nextInt(1000));
                 } catch (InterruptedException e) {

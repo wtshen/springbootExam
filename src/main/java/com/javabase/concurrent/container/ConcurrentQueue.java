@@ -27,16 +27,21 @@ public class ConcurrentQueue {
     public static void main(String[] args) {
         AtomicInteger count = new AtomicInteger(0);
         List<Thread> threadList = Lists.newArrayList();
+        Object lock = new Object();
         for (int i = 0; i < 10; i++) {
             threadList.add(new Thread(() -> {
                 while (true) {
-                    String ticket = tickets.poll();
-                    if (ticket == null) {
-                        break;
-                    } else {
-                        count.incrementAndGet();
-                        System.out.println(Thread.currentThread().getName() + "号窗口,销售了--" + ticket);
+                    // 判断和操作分离时候,需要上锁
+                    synchronized (lock) {
+                        if (tickets.isEmpty()) {
+                            break;
+                        } else {
+                            // poll 底层基于CAS实现
+                            String ticket = tickets.poll();
+                            count.incrementAndGet();
+                            System.out.println(Thread.currentThread().getName() + "号窗口,销售了--" + ticket);
 
+                        }
                     }
                 }
             }));

@@ -13,18 +13,41 @@ synchronized
 5.不要以字符串常量作为锁定对象
 6.线程间通讯:
     wait notify --必须先加锁,再使用
-    ountdownlatch/cyclicbarrier/semaphore
+    Countdownlatch/cyclicbarrier/semaphore
 7.ReentrantLock和synchronized的区别
-    1.比后者灵活,可进行tryLock,根据返回的锁定状态,实现自己的业务逻辑
+    1.ReentrantLock灵活,可进行tryLock,根据返回的锁定状态,实现自己的业务逻辑
     2.synchronized是竞争锁（效率高）,ReentrantLock可以指定公平锁
 8.高并发主要3块知识点
-    synchronizer 线程间同步,通讯  (1-22)
+    一.synchronizer 线程间同步,通讯  (1-22)
         synchronized wait notifyall
         Lock ReentrantLock Condition await signalAll
-    并发容器
-        Hashtable 所有实现都带锁,锁定整个对象
-        ConcurrentHashMap
-            JDK1.7将map分成16段,每次只锁定其中一段,效率比HashTable高
-            JDK1.8采用Node+CAS+Synchronized保证并发安全实现
-        ConcurrentSkipList
-    threadpool\executor\callable\feature
+    二.并发容器
+        1.map/set使用
+        不使用多线程的时候:
+            HashMap
+            TreeMap
+            LinkedHashMap
+            并发量小的时候可以使用:
+                Collections.synchronizedXXX
+                Hashtable 所有实现都带锁,锁定整个对象
+        高并发的场景下:
+            ConcurrentHashMap
+                JDK1.7将map分成16段,每次只锁定其中一段,效率比HashTable高
+                JDK1.8采用Node+CAS+Synchronized保证并发安全实现
+            ConcurrentSkipListMap 需要排序
+        2.队列
+        不需要同步的队列:
+            ArrayList
+            LinkedList
+            如果需要同步,并发量小时:
+                Collections.synchronizedXXX
+            CopyOnWriteList 写时复制,适用写少读特别多时
+        高并发的场景下:
+            ConcurrentLinkedQueue
+            BlockingQueue
+                LinedBQ 无界队列
+                ArrayBQ 有界队列
+                TransferQueue 无消费者时阻塞
+                SynchronusQueue
+            DelayQueue 执行定时任务
+    三.threadpool\executor\callable\feature

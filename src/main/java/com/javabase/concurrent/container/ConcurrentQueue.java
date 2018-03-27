@@ -2,6 +2,7 @@ package com.javabase.concurrent.container;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @Author: wtshen
@@ -10,10 +11,10 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  * @Modified By:
  */
 public class ConcurrentQueue {
-    static Queue<String> tickets = new ConcurrentLinkedDeque<>();
+    static Queue<String> tickets = new ConcurrentLinkedQueue<>();
 
     static {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 1000; i++) {
             tickets.add("票 编号" + i);
         }
     }
@@ -23,7 +24,7 @@ public class ConcurrentQueue {
             new Thread(() -> {
                 while (true) {
                     String ticket = tickets.poll();
-                    if (tickets.isEmpty()) {
+                    if (ticket == null) {
                         break;
                     }
                     System.out.println(Thread.currentThread().getName() + "号窗口,销售了--" + ticket);

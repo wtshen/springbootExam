@@ -1,8 +1,13 @@
 package com.javabase.concurrent.container;
 
+import com.google.common.collect.Lists;
+
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author: wtshen
@@ -20,16 +25,31 @@ public class ConcurrentQueue {
     }
 
     public static void main(String[] args) {
+        AtomicInteger count = new AtomicInteger(0);
+        List<Thread> threadList = Lists.newArrayList();
         for (int i = 0; i < 10; i++) {
-            new Thread(() -> {
+            threadList.add(new Thread(() -> {
                 while (true) {
                     String ticket = tickets.poll();
                     if (ticket == null) {
                         break;
+                    } else {
+                        count.incrementAndGet();
+                        System.out.println(Thread.currentThread().getName() + "号窗口,销售了--" + ticket);
+
                     }
-                    System.out.println(Thread.currentThread().getName() + "号窗口,销售了--" + ticket);
                 }
-            }).start();
+            }));
         }
+
+        threadList.forEach(thread -> thread.start());
+        threadList.forEach(thread -> {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        System.out.println(count);
     }
 }

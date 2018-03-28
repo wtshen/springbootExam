@@ -17,13 +17,13 @@ public class ArrayBlockQueue {
         }
 
         // 报异常
-        //queue.add("a" + 1);
+        //tasks.add("a" + 1);
 
         // 不报错,但是加不进去
         queue.offer("a" + 1);
 
         // 满了就阻塞
-        //queue.put("a" + 1);
+        //tasks.put("a" + 1);
 
         System.out.println(queue);
 

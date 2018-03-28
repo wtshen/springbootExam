@@ -12,68 +12,69 @@ import java.util.concurrent.TimeUnit;
  * @Modified By:
  */
 public class DelayQueueTest {
-    static BlockingQueue<MyTask> tasks = new DelayQueue();
+    class DelayedElement implements Delayed {
+        /**
+         * 延迟时间
+         */
+        private final long delayTime;
+        /**
+         * 到期时间
+         */
+        private final long expire;
+        /**
+         * 数据
+         */
+        private String data;
 
-    static class MyTask implements Delayed {
-        long runningTime;
-
-        public MyTask(long runningTime) {
-            this.runningTime = runningTime;
+        public DelayedElement(long delay, String data) {
+            delayTime = delay;
+            this.data = data;
+            expire = System.currentTimeMillis() + delay;
         }
 
         /**
-         * 出队时间
-         *
-         * @param unit
-         * @return
+         * 剩余时间=到期时间-当前时间
          */
         @Override
         public long getDelay(TimeUnit unit) {
-            return unit.convert(runningTime - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+            return unit.convert(this.expire - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
         }
 
         /**
-         * 比较队列中任务顺序
-         *
-         * @param o
-         * @return
+         * 优先队列里面优先级规则
          */
         @Override
         public int compareTo(Delayed o) {
-            if (this.getDelay(TimeUnit.MILLISECONDS) < o.getDelay(TimeUnit.MILLISECONDS)) {
-                return -1;
-            } else if (this.getDelay(TimeUnit.MILLISECONDS) > o.getDelay(TimeUnit.MILLISECONDS)) {
-                return 1;
-            } else {
-                return 0;
-            }
+            return (int) (this.getDelay(TimeUnit.MILLISECONDS) - o.getDelay(TimeUnit.MILLISECONDS));
         }
 
         @Override
         public String toString() {
-            return "" + runningTime;
+            final StringBuilder sb = new StringBuilder("DelayedElement{");
+            sb.append("delay=").append(delayTime);
+            sb.append(", expire=").append(expire);
+            sb.append(", data='").append(data).append('\'');
+            sb.append('}');
+            return sb.toString();
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        long now = System.currentTimeMillis();
-        MyTask myTask1 = new MyTask(now + 1000);
-        MyTask myTask2 = new MyTask(now + 2000);
-        MyTask myTask3 = new MyTask(now + 1500);
-        MyTask myTask4 = new MyTask(now + 2500);
-        MyTask myTask5 = new MyTask(now + 500);
+        DelayQueue<DelayedElement> delayQueue = new DelayQueue<>();
 
-        tasks.put(myTask1);
-        tasks.put(myTask2);
-        tasks.put(myTask3);
-        tasks.put(myTask4);
-        tasks.put(myTask5);
+        DelayQueueTest.DelayedElement element1 = new DelayQueueTest().new DelayedElement(3000, "zlx");
+        DelayQueueTest.DelayedElement element2 = new DelayQueueTest().new DelayedElement(2000, "gh");
 
-        System.out.println(tasks);
+        delayQueue.offer(element1);
+        delayQueue.offer(element2);
 
-        for (int i = 0; i < 5; i++) {
-            System.out.println(tasks.take());
+        element1 = delayQueue.take();
+        System.out.println(element1);
+
+        while (true) {
+            if (!delayQueue.isEmpty()) {
+                System.out.println(delayQueue.take());
+            }
         }
-
     }
 }

@@ -67,9 +67,6 @@ public class DelayQueueTest {
         delayQueue.offer(element1);
         delayQueue.offer(element2);
 
-        element1 = delayQueue.take();
-        System.out.println(element1);
-
         while (true) {
             if (!delayQueue.isEmpty()) {
                 System.out.println(delayQueue.take());

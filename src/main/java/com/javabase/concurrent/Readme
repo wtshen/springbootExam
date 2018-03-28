@@ -47,8 +47,9 @@ synchronized
             BlockingQueue
                 LinedBQ 无界队列
                 ArrayBQ 有界队列
-                TransferQueue 无消费者时阻塞
-                SynchronusQueue
+                如下两种Queue都是直接交给消费者
+                    TransferQueue 无消费者时阻塞
+                    SynchronusQueue 容量为0
                 DelayQueue
                     无界队列
                     等待时间最长的先往外拿

@@ -1,6 +1,5 @@
 package com.javabase.concurrent.container;
 
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;

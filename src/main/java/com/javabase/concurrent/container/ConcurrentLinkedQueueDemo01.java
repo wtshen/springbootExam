@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date: Created in 上午11:56 18/3/17.
  * @Modified By:
  */
-public class ConcurrentQueue {
+public class ConcurrentLinkedQueueDemo01 {
     static Queue<String> tickets = new ConcurrentLinkedQueue<>();
 
     static {

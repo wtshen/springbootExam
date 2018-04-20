@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @Date: Created in 下午9:40 18/3/5.
  * @Modified By:
  */
-public class CollectionTest {
+public class CollectionDemo {
 
     public static void main(String[] args) {
         List<UserInfo> userInfoList = Lists.newArrayList();

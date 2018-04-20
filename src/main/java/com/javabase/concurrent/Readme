@@ -60,5 +60,8 @@ synchronized
     三.threadpool\executor\callable\feature
         Executor [Inertface Method]  void execute(Runnable command) 执行器
         ExecutorService 从Executor继承,执行器的服务，等着往里面扔任务
-            submit  有返回值
-            execute 没有返回值
+            submit      有返回值
+            execute     无返回值
+            Callable    有返回值
+            Runnable    无返回值
+        FutureTask  在任务执行完毕之后得到任务的执行结果

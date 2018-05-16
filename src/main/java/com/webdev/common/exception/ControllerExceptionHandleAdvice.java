@@ -21,9 +21,24 @@ import java.sql.SQLException;
 public class ControllerExceptionHandleAdvice {
     private final static Logger logger = LoggerFactory.getLogger(ControllerExceptionHandleAdvice.class);
 
+    /**
+     * @ExceptionHandler
+     * 该注解作用对象为方法，并且在运行时有效，value()可以指定异常类。由该注解注释的方法可以具有灵活的输入参数（详细参见Spring API）
+     * 异常参数：包括一般的异常或特定的异常（即自定义异常），如果注解没有指定异常类，会默认进行映射。
+                请求或响应对象 (Servlet API or Portlet API)： 你可以选择不同的类型，如ServletRequest/HttpServletRequest或PortleRequest/ActionRequest/RenderRequest。
+                Session对象(Servlet API or Portlet API)： HttpSession或PortletSession。
+                WebRequest或NativeWebRequest
+                Locale
+                InputStream/Reader
+                OutputStream/Writer
+                Model
+     * @param res
+     * @param e
+     * @return
+     */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result Handle(HttpServletRequest req, HttpServletResponse res, Exception e) {
+    public Result Handle(HttpServletResponse res, Exception e) {
         if (res.getStatus() == HttpStatus.BAD_REQUEST.value()) {
             logger.info("修改返回状态值为200");
             res.setStatus(HttpStatus.OK.value());

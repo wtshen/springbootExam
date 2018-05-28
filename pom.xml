@@ -5,8 +5,12 @@
 
     <groupId>com.swt</groupId>
     <artifactId>springbootexam</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>dal</module>
+        <module>common</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>springbootExam</name>
     <description>Demo project for Spring Boot</description>

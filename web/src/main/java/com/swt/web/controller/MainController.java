@@ -1,10 +1,10 @@
 package com.swt.web.controller;
 
-import com.webdev.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.swt.po.*;
 
 /**
  * Created by wtshen on 18/2/17.

@@ -1,15 +1,15 @@
 package com.swt.web.controller;
 
 import com.google.common.base.Preconditions;
-import com.webdev.common.exception.Result;
-import com.webdev.common.exception.ResultUtil;
-import com.webdev.dao.MemInfoRepository;
-import com.webdev.model.MemInfo;
-import com.webdev.model.User;
-import com.webdev.service.MemService;
+import com.swt.dao.MemInfoRepository;
+import com.swt.exception.Result;
+import com.swt.exception.ResultUtil;
+import com.swt.po.MemInfo;
+import com.swt.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
+import com.swt.web.service.*;
 
 import java.util.List;
 

@@ -1,10 +1,11 @@
 package com.swt.web.controller;
 
+import com.swt.web.viewmodel.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.swt.po.*;
+
 
 /**
  * Created by wtshen on 18/2/17.
@@ -20,15 +21,15 @@ public class MainController {
 
 
     @Autowired
-    private UserInfo UserInfo;
+    private UserInfo userInfo;
 
-    @GetMapping(value = "/hello")
+    @RequestMapping(value = "/hello")
     public String hello() {
         return String.format("%s:%d", userName, userAge);
     }
 
-    @GetMapping(value = "/hello3")
+   /* @GetMapping(value = "/hello3")
     public String hello1() {
-        return String.format("%s:%d", UserInfo.getUserName(), UserInfo.getUserAge());
-    }
+        return String.format("%s:%d", userInfo.getUserName(), userInfo.getUserAge());
+    }*/
 }

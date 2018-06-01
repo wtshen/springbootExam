@@ -1,4 +1,4 @@
-package com.swt.po;
+package com.swt.web.viewmodel;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

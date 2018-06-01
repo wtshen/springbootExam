@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class MemService {
 
-    @Autowired
+    /*@Autowired
     MemInfoRepository memInfoRepository;
 
     @Transactional(rollbackFor = Exception.class)
@@ -31,5 +31,5 @@ public class MemService {
         MemInfo meminfo2 = new MemInfo();
         meminfo2.setName("swt11");
         memInfoRepository.save(meminfo2);
-    }
+    }*/
 }

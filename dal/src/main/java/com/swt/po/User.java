@@ -1,29 +1,20 @@
 package com.swt.po;
 
-import lombok.*;
-import org.springframework.stereotype.Component;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @Author: wtshen
  * @Description:
- * @Date: Created in 15:41 2018/3/2
+ * @Date: Created in 15:53 2018/6/20
  * @Modified By:
  */
-@Component
-@EqualsAndHashCode
+@Getter
+@Setter
 @ToString
 public class User {
-
-    @Setter
-    @Getter
+    private Long id;
     private String name;
-
-    @Setter
-    @Getter
-    private String surname;
-
-    @Setter
-    @Getter
-    private int age;
-
+    private Integer age;
 }

@@ -1,6 +1,6 @@
 package com.swt.web.controller;
 
-import com.swt.web.viewmodel.UserInfoConfigFile;
+import com.swt.web.viewmodel.UserInfoConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class ConfigReaderController {
     private Integer userAge;
 
     @Autowired
-    private UserInfoConfigFile userInfoConfigFile;
+    private UserInfoConfig userInfoConfig;
 
     @RequestMapping(value = "/index")
     public String hello() {
@@ -31,6 +31,6 @@ public class ConfigReaderController {
 
     @GetMapping(value = "/hello")
     public String hello1() {
-        return String.format("%s:%d", userInfoConfigFile.getUserName(), userInfoConfigFile.getUserAge());
+        return String.format("%s:%d", userInfoConfig.getUserName(), userInfoConfig.getUserAge());
     }
 }

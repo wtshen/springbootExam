@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "userInfo")
 @Component
-public class UserInfoConfigFile {
+public class UserInfoConfig {
     private String userName;
     private Integer userAge;
 

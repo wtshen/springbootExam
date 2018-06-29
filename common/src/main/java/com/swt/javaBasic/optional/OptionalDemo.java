@@ -1,4 +1,4 @@
-package com.swt.optional;
+package com.swt.javaBasic.optional;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;

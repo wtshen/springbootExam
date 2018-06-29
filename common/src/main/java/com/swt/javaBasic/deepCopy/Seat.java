@@ -1,4 +1,4 @@
-package com.swt.javaBasic;
+package com.swt.javaBasic.deepCopy;
 
 import lombok.Getter;
 import lombok.Setter;

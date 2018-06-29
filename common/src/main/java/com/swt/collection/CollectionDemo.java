@@ -39,7 +39,7 @@ public class CollectionDemo {
         userInfo4.setAge(20);
         userInfoList.add(userInfo4);
 
-        // 去重
+        // 去重，需要重写对象的equals、hashCode方法
         List<UserInfo> distinctUserInfoList = userInfoList.stream().distinct().collect(Collectors.toList());
         System.out.println(distinctUserInfoList);
 

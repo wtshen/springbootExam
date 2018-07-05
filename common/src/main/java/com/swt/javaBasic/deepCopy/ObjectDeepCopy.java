@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @Author: wtshen
- * @Description:
+ * @Description: 利用序列化完成深拷贝
  * @Date: Created in 13:28 2018/6/29
  * @Modified By:
  */

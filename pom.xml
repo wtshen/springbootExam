@@ -27,8 +27,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <com.swt.module.version>1.0.0</com.swt.module.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.swt</groupId>
+                <artifactId>common</artifactId>
+                <version>${com.swt.module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.swt</groupId>
+                <artifactId>dal</artifactId>
+                <version>${com.swt.module.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

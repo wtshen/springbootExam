@@ -16,12 +16,10 @@
         <dependency>
             <groupId>com.swt</groupId>
             <artifactId>dal</artifactId>
-            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.swt</groupId>
             <artifactId>common</artifactId>
-            <version>1.0.0</version>
         </dependency>
 
         <!--Swagger2的依赖_begin-->

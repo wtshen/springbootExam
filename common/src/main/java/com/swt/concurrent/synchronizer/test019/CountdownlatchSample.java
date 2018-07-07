@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: wtshen
- * @Description: 使用Latch门闩替代wait notify来进行通知
+ * @Description:
+ * 使用Latch门闩替代wait notify来进行通知
  * 优点:通讯方式简单,同时也可以指定等待时间
  * 使用await和countdown来替代wait和notify
  * CountDownLatch不涉及锁定,当count值为0时当前线程继续运行

@@ -7,7 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: wtshen
- * @Description: 实现一个容易, 提供两个方法, add size
+ * @Description:
+ * 实现一个容易, 提供两个方法, add size
  * 写两个线程,线程1添加10个元素到容器中,线程2实现监控元素的个数,当个数到5的时候,线程2给出提示并结束
  *
  * 给lists添加volatile后,t2能够接到通知,但是,t2线程的死循环很浪费cpu

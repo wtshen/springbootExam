@@ -7,12 +7,12 @@ import java.util.concurrent.TimeUnit;
  * @Description: 程序的处理过程中, 如果出现异常, 那么锁会被释放
  * 所以,在处理并发的过程中,有异常要当心,不然可能发生不一致的情况
  * 比如,在一个web app处理过程中,多个servlet线程功能访问同一个资源,这时如果异常处理不当
- * 在第一个线程中抛出一场,其他线程就会进入同步代码区,可能会访问到异常产生的数据
+ * 在第一个线程中抛出异常,其他线程就会进入同步代码区,可能会访问到异常产生的数据
  * 因此要非常小心的处理同步业务逻辑中的异常
  * @Date: Created in 下午4:29 18/3/4.
  * @Modified By:
  */
-public class ThreadSample {
+public class ThreadExceptionSample {
     int count = 0;
 
     synchronized void m() {
@@ -39,11 +39,11 @@ public class ThreadSample {
     }
 
     public static void main(String[] args) {
-        ThreadSample threadSample = new ThreadSample();
-        Thread thread1 = new Thread(threadSample::m, "Thread1");
+        ThreadExceptionSample threadExceptionSample = new ThreadExceptionSample();
+        Thread thread1 = new Thread(threadExceptionSample::m, "Thread1");
         thread1.start();
 
-        Thread thread2 = new Thread(threadSample::m, "Thread2");
+        Thread thread2 = new Thread(threadExceptionSample::m, "Thread2");
         thread2.start();
 
         // 输出线程的状态

@@ -4,8 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: wtshen
- * @Description: 1.一个同步方法可以调用另外一个同步方法
- * 2.一个线程拥有了某个对象的锁,还可以再次获得该锁
+ * @Description:
+ * 1.一个同步方法可以调用另外一个同步方法
+ * 2.一个线程拥有了某个对象的锁,还可以再次获得该锁,实际上锁就是对象上的一个可计数的标识
  * 子类也可以调用父类的同步方法
  * @Date: Created in 下午4:12 18/3/4.
  * @Modified By:

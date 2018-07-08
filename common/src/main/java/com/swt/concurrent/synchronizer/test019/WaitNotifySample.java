@@ -7,7 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: wtshen
- * @Description: 使用wait和notify, wait会释放锁, 而notify不会
+ * @Description:
+ * 使用wait和notify, wait会释放锁, 而notify不会
  * 1.wait和notify都是在对象上,想要使用必须先锁定该对象
  * 2.wait线程进入等待,只有通过对象上notify,才能继续执行
  * 3.使用notify无法指定通知的线程
@@ -41,7 +42,7 @@ public class WaitNotifySample {
                     }
                 }
                 // 通知t1继续执行
-                // lock.notify();
+                lock.notify();
                 System.out.println(Thread.currentThread().getName() + " end");
             }
         }, "t2");
@@ -67,11 +68,11 @@ public class WaitNotifySample {
                         lock.notify();
                         // 加上这句会让t2得以执行,但是t1就会一直处于等待
                         // 除非配合t2线程的notify,再次通知后才能继续
-                        /*try {
+                        try {
                             lock.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
-                        }*/
+                        }
                     }
                 }
             }

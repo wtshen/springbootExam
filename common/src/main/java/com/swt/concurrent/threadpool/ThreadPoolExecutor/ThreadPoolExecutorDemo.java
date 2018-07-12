@@ -26,7 +26,7 @@ public class ThreadPoolExecutorDemo implements ApplicationContextAware {
     public static void main(String[] args) {
         SpringApplication.run(ThreadPoolExecutorDemo.class, args);
 
-        Executor asyncServiceExecutor = (Executor) threadPoolApplicationContext.getBean("asyncServiceExecutor");
+        Executor asyncServiceExecutor = (Executor) threadPoolApplicationContext.getBean("taskServiceExecutor");
         asyncServiceExecutor.execute(() -> System.out.println("1111"));
     }
 }

@@ -28,7 +28,7 @@ public class ThreadPoolController {
         List<Integer> list = Lists.newArrayList(1, 2, 3, 4);
         LocalDateTime now = LocalDateTime.now();
         List<UserInfo> userInfoList = queryService.threadHandle(list);
-        System.out.println("全部执行耗时：" + Duration.between(now, LocalDateTime.now()).toMillis());
+        System.out.println("全部执行耗时：" + Duration.between(now, LocalDateTime.now()).toMillis() + "ms");
         userInfoList.forEach(i -> System.out.println(i));
         return userInfoList.toString();
     }

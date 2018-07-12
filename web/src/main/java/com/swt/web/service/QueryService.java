@@ -47,7 +47,7 @@ public class QueryService {
                 try {
                     return query(id);
                 } finally {
-                    System.out.println(Duration.between(now, LocalDateTime.now()));
+                    System.out.println("单个现成耗时：" + Duration.between(now, LocalDateTime.now()).toMillis());
                     latch.countDown();
                 }
             });

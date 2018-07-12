@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 
 /**
  * @Author: wtshen
- * @Description:
+ * @Description: 启动类中调用，无法使用@Autowire,可能是还没加载完成就开始运行了
  * @Date: Created in 10:13 2018/7/12
  * @Modified By:
  */

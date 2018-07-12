@@ -4,12 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @Author: wtshen
- * @Description:
+ * @Description:  线程池配置类，为了让springboot能扫描到，如果再springboot启动类中把顶层包名加入扫描
  * @Date: Created in 19:29 2018/7/11
  * @Modified By:
  */

@@ -13,7 +13,7 @@ import java.util.List;
  * @Date: Created in 下午8:47 18/3/4.
  * @Modified By:
  */
-public class VollatileSample1 {
+public class VolatileSample1 {
     volatile int count;
 
     /*synchronized*/ void m() {
@@ -23,17 +23,17 @@ public class VollatileSample1 {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        VollatileSample1 vollatileSample1 = new VollatileSample1();
+        VolatileSample1 volatileSample1 = new VolatileSample1();
 
         List<Thread> threadList = Lists.newArrayList();
         for (int i = 0; i < 10; i++) {
-            threadList.add(new Thread(vollatileSample1::m, "thread" + i));
+            threadList.add(new Thread(volatileSample1::m, "thread" + i));
         }
 
         threadList.forEach((thread -> thread.start()));
         for (Thread thread : threadList) {
             thread.join();
         }
-        System.out.println(vollatileSample1.count);
+        System.out.println(volatileSample1.count);
     }
 }

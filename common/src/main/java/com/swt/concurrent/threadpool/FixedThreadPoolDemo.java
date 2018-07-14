@@ -25,9 +25,10 @@ public class FixedThreadPoolDemo {
         int cpuNum = Runtime.getRuntime().availableProcessors();
 
         ThreadFactory nameThreadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
-        // corePoolSize 核心线程数，默认情况下核心线程会一直存活，即使处于闲置状态也不会受存keepAliveTime限制。除非将allowCoreThreadTimeOut设置为true。
+        // 使用 ThreadPoolExecutor来模拟 FixedThreadPool
+        // corePoolSize 线程池保持的最小线程数，默认情况下核心线程会一直存活，即使处于闲置状态也不会受存keepAliveTime限制。除非将allowCoreThreadTimeOut设置为true。
         // maximumPoolSize 线程池所能容纳的最大线程数。超过这个数的线程将被阻塞。当任务队列为没有设置大小的LinkedBlockingDeque时，这个值无效。
-        // keepAliveTime 非核心线程的闲置超时时间，超过这个时间就会被回收。
+        // keepAliveTime 非核心线程的闲置超时时间，超过这个时间就会被回收,0代表永久。
         // unit 指定keepAliveTime的单位，如TimeUnit.SECONDS。当将allowCoreThreadTimeOut设置为true时对corePoolSize生效。
         // workQueue 线程池中的任务队列.常用的有三种队列，SynchronousQueue,LinkedBlockingDeque,ArrayBlockingQueue。
         // threadFactory 线程工厂，提供创建新线程的功能。ThreadFactory是一个接口，只有一个方法

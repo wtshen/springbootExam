@@ -24,7 +24,7 @@ public class ConfigReaderController {
     @Autowired
     private UserInfoConfig userInfoConfig;
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/helloworld")
     public String hello() {
         return String.format("%s:%d", userName, userAge);
     }

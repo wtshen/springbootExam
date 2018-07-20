@@ -8,11 +8,17 @@
     <link rel="shortcut icon" href="./favicon.ico">
     <title>React App</title>
     <link href="./css/main.9321b201.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <h1>我的React</h1>
 <div id="root"></div>
+<#--
 <script type="text/javascript" src="./js/main.d0012187.js"></script>
+-->
+<script type="text/javascript" src="./js/index.js"></script>
+
 </body>
 </html>

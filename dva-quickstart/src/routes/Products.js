@@ -17,11 +17,12 @@ const Products = ({ dispatch, products }) => {
     );
 };
 
+/* function mapStateToProp(state) {
+    return { products: state.products }
+} */
+
 // export default Products;
 export default connect(
-    ({ products }) => (
-        {
-            products,
-        }
-    )
+    // 相当于调用mapStateToProp,建立 state 到 props 的映射关系
+    ({ products }) => ({ products, })
 )(Products); 

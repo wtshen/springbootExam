@@ -4,6 +4,8 @@ import ProductList from '../components/ProductList';
 
 const Products = ({ dispatch, products }) => {
     function handleDelete(id) {
+        // dispatch时一个函数方法，用来讲 action 发送到 state
+        // dispatch来源：被 connect 的 Component自动在 props 中拥有 dispatch 方法
         dispatch({
             type: 'products/delete',
             payload: id,

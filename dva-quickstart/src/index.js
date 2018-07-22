@@ -4,7 +4,7 @@ import './index.css';
 // 1. Initialize
 const app = dva({
     initialState: {
-        products: [
+        aaa: [
             { name: 'dva', id: 1 },
             { name: 'antd', id: 2 },
         ],

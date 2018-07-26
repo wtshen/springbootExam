@@ -10,12 +10,12 @@ import themeReducer from '../reducer/reducer'
 const store = createStore(themeReducer)
 
 class App extends Component {
-  static childContextTypes = {
+  /* static childContextTypes = {
     store: PropTypes.object
   }
   getChildContext() {
     return { store }
-  }
+  } */
   render() {
     return (
       <div>

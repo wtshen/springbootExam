@@ -18,6 +18,7 @@ import java.util.concurrent.ThreadPoolExecutor;
         如果是CPU密集型任务，那么线程池的线程个数应该尽量少一些，一般为CPU的个数+1条线程。
         如果是IO密集型任务，那么线程池的线程可以放的很大，如2*CPU的个数。
         对于混合型任务，如果可以拆分的话，通过拆分成CPU密集型和IO密集型两种来提高执行效率；如果不能拆分的的话就可以根据实际情况来调整线程池中线程的个数。
+    ThreadPool 可根据实际情况配置多个,比如业务一个,敏感信息处理一个
  * @Date: Created in 19:29 2018/7/11
  * @Modified By:
  */

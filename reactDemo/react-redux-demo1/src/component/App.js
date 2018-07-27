@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import Header from './Header'
 import Content from './Content'
 import '../css/index.css'
-import createStore from '../store'
+import { createStore } from 'redux'
 import themeReducer from '../reducer/reducer'
 
 const store = createStore(themeReducer)

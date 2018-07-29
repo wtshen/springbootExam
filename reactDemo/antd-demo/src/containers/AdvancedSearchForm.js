@@ -5,6 +5,11 @@ import ReactDOM from 'react-dom';
 
 const FormItem = Form.Item;
 
+const formItemLayout = {
+    labelCol: { span: 5 },
+    wrapperCol: { span: 15 }
+};
+
 class AdvancedSearchForm extends React.Component {
     state = {
         expand: false,
@@ -26,48 +31,76 @@ class AdvancedSearchForm extends React.Component {
         this.setState({ expand: !expand });
     }
 
-    // To generate mock Form.Item
-    getFields() {
-        const count = this.state.expand ? 10 : 6;
-        const { getFieldDecorator } = this.props.form;
-        const children = [];
-        for (let i = 0; i < 10; i++) {
-            children.push(
-                <Col span={8} key={i} style={{ display: i < count ? 'block' : 'none' }}>
-                    <FormItem label={`Field ${i}`}>
-                        {getFieldDecorator(`field-${i}`, {
-                            rules: [{
-                                required: true,
-                                message: 'Input something!',
-                            }],
-                        })(
-                            <Input placeholder="placeholder" />
-                        )}
-                    </FormItem>
-                </Col>
-            );
-        }
-        return children;
-    }
-
     render() {
+        const { getFieldDecorator, getFeildsValue } = this.props.form;
+        const { record } = this.props;
+
         return (
-            <Form
-                className="ant-advanced-search-form"
-                onSubmit={this.handleSearch}
-            >
-                <Row gutter={24}>{this.getFields()}</Row>
-                <Row>
-                    <Col span={24} style={{ textAlign: 'right' }}>
-                        <Button type="primary" htmlType="submit">Search</Button>
-                        <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
-                            Clear
-            </Button>
-                        <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggle}>
-                            Collapse <Icon type={this.state.expand ? 'up' : 'down'} />
-                        </a>
+            <Form className="ant-advanced-search-form" onSubmit={this.handleSearch}>
+                <Row gutter={24}>
+                    <Col span={8}>
+                        <FormItem label="编号" {...formItemLayout} >
+                            {getFieldDecorator('id', {
+                                rules: [{
+                                    required: true, message: '请输入书籍编号！'
+                                }],
+                                initialValue: record ? record.id : ""
+                            })(
+                                <Input placeholder="请输入书籍编号" />
+                            )}
+                        </FormItem>
+                    </Col>
+                    <Col span={8}>
+                        <FormItem label="名称" {...formItemLayout}>
+                            {getFieldDecorator('name', {
+                                rules: [{
+                                    required: true, message: '请输入书籍名称!'
+                                }],
+                                initialValue: record ? record.name : ""
+                            })(
+                                <Input placeholder="请输入书籍名称" />
+                            )}
+                        </FormItem>
                     </Col>
                 </Row>
+                <Row gutter={24}>
+                    <Col span={8}>
+                        <FormItem label="价格"  {...formItemLayout}>
+                            {getFieldDecorator('price', {
+                                rules: [{
+                                    required: true, message: '请输入价格!'
+                                }, {
+                                    pattern: /(^[1-9](\d+)?(\.\d{1,2})?$)|(^(0){1}$)|(^\d\.\d{1,2}?$)/, message: '请输入正确的金额'
+                                }],
+                                initialValue: record ? record.price : ""
+                            })(
+                                <Input placeholder="请输入价格" />
+                            )}
+                        </FormItem>
+                    </Col>
+                    <Col span={8}>
+                        <FormItem label="借阅者编号"  {...formItemLayout}>
+                            {getFieldDecorator('owner_id', {
+                                rules: [{
+                                    required: true, message: '请输入借阅者编号!'
+                                }, {
+                                    pattern: /^(\d{5})$/, message: '请输入5位数字'
+                                }],
+                                initialValue: record ? record.owner_id : ""
+                            })(
+                                <Input placeholder="请输入借阅者编号" />
+                            )}
+                        </FormItem>
+                    </Col>
+                </Row>
+                <FormItem wrapperCol={{ span: 10, offset: 10 }}>
+                    <Button type="primary" htmlType="submit">
+                        确定
+                    </Button>
+                    <Button onClick={this.handleReset}>
+                        清除
+                    </Button>
+                </FormItem>
             </Form>
         );
     }

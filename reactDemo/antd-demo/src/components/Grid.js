@@ -1,6 +1,7 @@
 import { Table, Icon, Divider } from 'antd';
 import React, { Component } from 'react';
 import { ReactDom } from 'react-dom';
+import { connect } from 'net';
 
 class Grid extends Component {
     render() {
@@ -49,6 +50,7 @@ class Grid extends Component {
             age: 32,
             address: 'Sidney No. 1 Lake Park',
         }];
+
         return (
             <div>
                 <Table columns={columns} dataSource={data} />
@@ -56,5 +58,11 @@ class Grid extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        data: state.data
+    }
+}
 
+Grid = connect(mapStateToProps)(Grid);
 export default Grid;

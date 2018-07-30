@@ -2,6 +2,9 @@ import { Form, Row, Col, Input, Button, Icon } from 'antd';
 import '../App.css';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { mapStateToProps } from '../actions/mapStateToProps';
+import { mapDispatchToProps } from '../actions/mapDispatchToProps';
+import { connect } from 'react-redux';
 
 const FormItem = Form.Item;
 
@@ -9,17 +12,19 @@ const formItemLayout = {
     labelCol: { span: 5 },
     wrapperCol: { span: 15 }
 };
+console.log(mapDispatchToProps)
 
 class AdvancedSearchForm extends React.Component {
     state = {
         expand: false,
-    };
+    }
 
     handleSearch = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             console.log('Received values of form: ', values);
         });
+        this.props.bookSearch({})
     }
 
     handleReset = () => {
@@ -32,11 +37,12 @@ class AdvancedSearchForm extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         const { getFieldDecorator, getFeildsValue } = this.props.form;
         const { record } = this.props;
 
         return (
-            <Form className="ant-advanced-search-form" onSubmit={this.handleSearch}>
+            <Form className="ant-advanced-search-form" onSubmit={(e) => { this.handleSearch(e) }}>
                 <Row gutter={24}>
                     <Col span={8}>
                         <FormItem label="编号" {...formItemLayout} >
@@ -105,6 +111,6 @@ class AdvancedSearchForm extends React.Component {
         );
     }
 }
-
-const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
-export default WrappedAdvancedSearchForm
+export default connect(mapStateToProps, mapDispatchToProps)(AdvancedSearchForm);
+//const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
+//export default WrappedAdvancedSearchForm

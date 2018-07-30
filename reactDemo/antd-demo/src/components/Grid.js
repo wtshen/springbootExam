@@ -1,7 +1,9 @@
 import { Table, Icon, Divider } from 'antd';
 import React, { Component } from 'react';
 import { ReactDom } from 'react-dom';
-import { connect } from 'net';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../actions/mapStateToProps';
+import { mapDispatchToProps } from '../actions/mapDispatchToProps';
 
 class Grid extends Component {
     render() {
@@ -34,22 +36,7 @@ class Grid extends Component {
             ),
         }];
 
-        const data = [{
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-        }, {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-        }, {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-        }];
+        const data = this.props.bookSearchResult;
 
         return (
             <div>
@@ -59,4 +46,4 @@ class Grid extends Component {
     }
 }
 
-export default Grid;
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);

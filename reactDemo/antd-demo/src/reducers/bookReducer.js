@@ -1,18 +1,15 @@
-const DEFAULT_BOOK_QUERY = {
-    id: '',
-    name: '',
-    price: '',
-    owner_id: ''
-}
-function bookSearch(state = DEFAULT_BOOK_QUERY, action) {
-    if (action.type === "bookSearch") {
+import { combineReducers } from 'redux';
+function bookSearchResultReduce(state = {}, action) {
+    if (action.type === "bookSearchResultReduce") {
         return { ...action.data }
     }
     return state;
 }
 
-let bookReducer = {
-    bookSearch: bookSearch
+let reduces = {
+    bookSearchResult: bookSearchResultReduce
 }
+const bookReducer = combineReducers(reduces)
+
 
 export default bookReducer;

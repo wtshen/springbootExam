@@ -1,7 +1,27 @@
 
-export default function bookSearch(data) {
-    return {
-        type: "bookSearch",
-        data: data
-    }
+import { REQUEST_HEADER, actionCreator, dispatchAction } from './constdata';
+function bookSearch(param, dispatch) {
+    let json = [{
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+    }, {
+        key: '2',
+        name: 'Jim Green',
+        age: 42,
+        address: 'London No. 1 Lake Park',
+    }, {
+        key: '3',
+        name: 'Joe Black',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+    }];
+    bookSearchResultChange(json, dispatch);
 }
+
+function bookSearchResultChange(data, dispatch) {
+    dispatchAction(dispatch, "bookSearchResultReduce", data);
+}
+
+export { bookSearch, bookSearchResultChange }

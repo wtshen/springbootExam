@@ -106,13 +106,5 @@ class AdvancedSearchForm extends React.Component {
     }
 }
 
-const mapDispatchToProps = (dispatch)=>{
-    return{
-        onSearchClick:(para)=>{
-            dispatch({type:"bookSearch"})
-        }
-    }
-}
-
 const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
 export default WrappedAdvancedSearchForm

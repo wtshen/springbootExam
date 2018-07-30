@@ -58,11 +58,5 @@ class Grid extends Component {
         );
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        data: state.data
-    }
-}
 
-Grid = connect(mapStateToProps)(Grid);
 export default Grid;

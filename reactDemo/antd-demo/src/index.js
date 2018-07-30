@@ -14,7 +14,7 @@ registerServiceWorker(); */
 
 
 let mountNode = document.getElementById('root');
-let store = createStore(bookReducer);
+let store = {};//createStore(bookReducer);
 render(
     <Provider store={store}>
         <HashRouter >

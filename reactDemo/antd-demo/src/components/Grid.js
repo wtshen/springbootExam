@@ -6,6 +6,9 @@ import { mapStateToProps } from '../actions/mapStateToProps';
 import { mapDispatchToProps } from '../actions/mapDispatchToProps';
 
 class Grid extends Component {
+    constructor(props){
+        super(props)        
+    }
     render() {
         const columns = [{
             title: 'Name',
@@ -37,7 +40,6 @@ class Grid extends Component {
         }];
 
         const data = this.props.bookSearchResult;
-
         return (
             <div>
                 <Table columns={columns} dataSource={data} />

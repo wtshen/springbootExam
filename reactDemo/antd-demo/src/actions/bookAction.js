@@ -1,6 +1,6 @@
 
 import { REQUEST_HEADER, actionCreator, dispatchAction } from './constdata';
-function bookSearch(param, dispatch) {
+function bookSearch(param, dispatch) {   
     let json = [{
         key: '1',
         name: 'John Brown',

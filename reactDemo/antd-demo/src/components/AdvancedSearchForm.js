@@ -12,95 +12,53 @@ const formItemLayout = {
     labelCol: { span: 5 },
     wrapperCol: { span: 15 }
 };
-console.log(mapDispatchToProps)
 
 class AdvancedSearchForm extends React.Component {
-    state = {
-        expand: false,
-    }
-
-    handleSearch = (e) => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            console.log('Received values of form: ', values);
-        });
-        this.props.bookSearch({})
+    handleSearch = () => {
+        let queryParam = {
+            pageIndex: 0,
+            pageSize: 10,
+            entityName: this.refs.id.input.value,
+            propertyName: this.refs.name.input.value,
+            propertyCode: this.refs.price.input.value,
+            propertyValue: this.refs.owner_id.input.value
+        }
+        this.props.bookSearch({queryParam})
     }
 
     handleReset = () => {
         this.props.form.resetFields();
     }
 
-    toggle = () => {
-        const { expand } = this.state;
-        this.setState({ expand: !expand });
-    }
-
     render() {
-        console.log(this.props);
-        const { getFieldDecorator, getFeildsValue } = this.props.form;
-        const { record } = this.props;
-
         return (
-            <Form className="ant-advanced-search-form" onSubmit={(e) => { this.handleSearch(e) }}>
+            <Form className="ant-advanced-search-form">
                 <Row gutter={24}>
                     <Col span={8}>
                         <FormItem label="编号" {...formItemLayout} >
-                            {getFieldDecorator('id', {
-                                rules: [{
-                                    required: true, message: '请输入书籍编号！'
-                                }],
-                                initialValue: record ? record.id : ""
-                            })(
-                                <Input placeholder="请输入书籍编号" />
-                            )}
+                            <Input placeholder="请输入书籍编号" ref="id" />
                         </FormItem>
                     </Col>
                     <Col span={8}>
                         <FormItem label="名称" {...formItemLayout}>
-                            {getFieldDecorator('name', {
-                                rules: [{
-                                    required: true, message: '请输入书籍名称!'
-                                }],
-                                initialValue: record ? record.name : ""
-                            })(
-                                <Input placeholder="请输入书籍名称" />
-                            )}
+                            <Input placeholder="请输入书籍名称" ref="name" />
                         </FormItem>
                     </Col>
                 </Row>
                 <Row gutter={24}>
                     <Col span={8}>
                         <FormItem label="价格"  {...formItemLayout}>
-                            {getFieldDecorator('price', {
-                                rules: [{
-                                    required: true, message: '请输入价格!'
-                                }, {
-                                    pattern: /(^[1-9](\d+)?(\.\d{1,2})?$)|(^(0){1}$)|(^\d\.\d{1,2}?$)/, message: '请输入正确的金额'
-                                }],
-                                initialValue: record ? record.price : ""
-                            })(
-                                <Input placeholder="请输入价格" />
-                            )}
+                            <Input placeholder="请输入价格" ref="price" />
                         </FormItem>
                     </Col>
                     <Col span={8}>
                         <FormItem label="借阅者编号"  {...formItemLayout}>
-                            {getFieldDecorator('owner_id', {
-                                rules: [{
-                                    required: true, message: '请输入借阅者编号!'
-                                }, {
-                                    pattern: /^(\d{5})$/, message: '请输入5位数字'
-                                }],
-                                initialValue: record ? record.owner_id : ""
-                            })(
-                                <Input placeholder="请输入借阅者编号" />
-                            )}
+                            <Input placeholder="请输入借阅者编号" ref="owner_id" />
                         </FormItem>
                     </Col>
                 </Row>
                 <FormItem wrapperCol={{ span: 10, offset: 10 }}>
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" onClick={() => { this.handleSearch(); }}>
                         确定
                     </Button>
                     <Button onClick={this.handleReset}>
@@ -112,5 +70,3 @@ class AdvancedSearchForm extends React.Component {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AdvancedSearchForm);
-//const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
-//export default WrappedAdvancedSearchForm

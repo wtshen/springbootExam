@@ -14,7 +14,8 @@ registerServiceWorker(); */
 
 
 let mountNode = document.getElementById('root');
-let store = createStore(bookReducer);
+let store = createStore(bookReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 render(
     <Provider store={store}>
         <HashRouter >

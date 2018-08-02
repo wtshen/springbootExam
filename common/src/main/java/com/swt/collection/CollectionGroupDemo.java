@@ -21,12 +21,16 @@ public class CollectionGroupDemo {
         Random random = new Random(1);
         List<UserInfo> userInfoList = Lists.newArrayList();
 
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 100; i++) {
             UserInfo userInfo = new UserInfo();
             userInfo.setId(random.nextInt(10));
             userInfo.setAge(random.nextInt(10)+random.nextInt(20));
+            userInfo.setName("user"+random.nextInt(10));
             userInfoList.add(userInfo);
         }
+
+        //String sourceName = "user1|user2";
+        //List<UserInfo> collect1 = userInfoList.stream().filter(x -> sourceName.contains(x.getName())).collect(Collectors.toList());
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();

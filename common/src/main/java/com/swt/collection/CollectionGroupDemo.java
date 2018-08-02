@@ -1,11 +1,14 @@
 package com.swt.collection;
 
 import com.google.common.collect.Lists;
+import org.springframework.util.StopWatch;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.maxBy;
+import static java.util.stream.Collectors.minBy;
 
 /**
  * @Author: wtshen
@@ -15,41 +18,39 @@ import static java.util.stream.Collectors.maxBy;
  */
 public class CollectionGroupDemo {
     public static void main(String[] args) {
+        Random random = new Random(1);
         List<UserInfo> userInfoList = Lists.newArrayList();
-        UserInfo userInfo = new UserInfo();
-        userInfo.setId(1);
-        userInfo.setAge(0);
-        userInfoList.add(userInfo);
 
-        UserInfo userInfo1 = new UserInfo();
-        userInfo1.setId(1);
-        userInfo1.setAge(0);
-        userInfoList.add(userInfo1);
+        for (int i = 0; i < 100000; i++) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(random.nextInt(10));
+            userInfo.setAge(random.nextInt(10)+random.nextInt(20));
+            userInfoList.add(userInfo);
+        }
 
-        UserInfo userInfo2 = new UserInfo();
-        userInfo2.setId(2);
-        userInfo2.setAge(1);
-        userInfoList.add(userInfo2);
-
-        UserInfo userInfo3 = new UserInfo();
-        userInfo3.setId(2);
-        userInfo3.setAge(3);
-        userInfoList.add(userInfo3);
-
-        UserInfo userInfo4 = new UserInfo();
-        userInfo4.setId(2);
-        userInfo4.setAge(4);
-        userInfoList.add(userInfo4);
-
-        Optional<UserInfo> collect1 =
-                userInfoList.stream().collect(Collectors.maxBy(Comparator.comparing(UserInfo::getAge)));
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         Map<Integer, List<UserInfo>> collect =
                 userInfoList.stream().collect(Collectors.groupingBy(UserInfo::getId));
 
-        Optional<UserInfo> collect2 = userInfoList.stream().collect(maxBy(comparing(UserInfo::getAge)));
+        //userInfoList = null;
 
-        System.out.println(collect2);
+        Set<UserInfo> userInfos = new HashSet<>();
+        for (Map.Entry<Integer, List<UserInfo>> integerListEntry : collect.entrySet()) {
+            Optional<UserInfo> maxCollect = integerListEntry.getValue().stream().collect(maxBy(comparing(UserInfo::getAge)));
+            Optional<UserInfo> minCollect = integerListEntry.getValue().stream().collect(minBy(comparing(UserInfo::getAge)));
+
+            UserInfo tmpUserInfo = new UserInfo();
+            tmpUserInfo.setId(integerListEntry.getKey());
+            tmpUserInfo.setAge(maxCollect.get().getAge() - minCollect.get().getAge() + 1);
+            userInfos.add(tmpUserInfo);
+        }
+
+        stopWatch.stop();
+
+        System.out.println(userInfoList);
+        System.out.println(userInfos);
+        System.out.println(stopWatch.prettyPrint());
 
     }
-
 }

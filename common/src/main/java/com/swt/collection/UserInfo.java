@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class UserInfo {
     private Integer id;
+    private double salary;
     private String name;
     private Integer age;
 }

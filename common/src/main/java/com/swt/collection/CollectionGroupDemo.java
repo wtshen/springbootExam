@@ -24,10 +24,13 @@ public class CollectionGroupDemo {
         for (int i = 0; i < 100; i++) {
             UserInfo userInfo = new UserInfo();
             userInfo.setId(random.nextInt(10));
-            userInfo.setAge(random.nextInt(10)+random.nextInt(20));
-            userInfo.setName("user"+random.nextInt(10));
+            userInfo.setSalary(random.nextDouble());
+            userInfo.setAge(random.nextInt(10) + random.nextInt(20));
+            userInfo.setName("user" + random.nextInt(10));
             userInfoList.add(userInfo);
         }
+
+        System.out.println(userInfoList);
 
         //String sourceName = "user1|user2";
         //List<UserInfo> collect1 = userInfoList.stream().filter(x -> sourceName.contains(x.getName())).collect(Collectors.toList());
@@ -36,6 +39,18 @@ public class CollectionGroupDemo {
         stopWatch.start();
         Map<Integer, List<UserInfo>> collect =
                 userInfoList.stream().collect(Collectors.groupingBy(UserInfo::getId));
+
+       /* Map<Integer, Integer> collect1 = userInfoList.stream()
+                .collect(Collectors.groupingBy(UserInfo::getId, Collectors.summingInt(UserInfo::getAge)));
+        Map<Integer, Double> collect2 = userInfoList.stream()
+                .collect(Collectors.groupingBy(UserInfo::getId, Collectors.summingDouble(UserInfo::getSalary)));
+        System.out.println("++++" + collect1);
+        System.out.println("++++" + collect2);*/
+
+        for (Map.Entry<Integer, List<UserInfo>> entry : collect.entrySet()) {
+            Integer collect3 = entry.getValue().stream().collect(Collectors.summingInt(UserInfo::getAge));
+            System.out.println(collect3);
+        }
 
         //userInfoList = null;
 

@@ -1,5 +1,6 @@
 package com.swt.web.controller;
 
+import com.swt.annotation.WriteLogAnnotation;
 import com.swt.po.User;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -32,6 +33,7 @@ public class UserController {
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     @RequestMapping(value = "", method = RequestMethod.POST)
+    @WriteLogAnnotation(logTitle = "创建用户")
     public String postUser(@RequestBody User user) {
         users.put(user.getId(), user);
         return "success";
@@ -50,6 +52,7 @@ public class UserController {
             @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     })
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @WriteLogAnnotation(logTitle = "更新用户")
     public String putUser(@PathVariable Long id, @RequestBody User user) {
         User u = users.get(id);
         u.setName(user.getName());
@@ -61,6 +64,7 @@ public class UserController {
     @ApiOperation(value = "删除用户", notes = "根据url的id来指定删除对象")
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long", paramType = "path")
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @WriteLogAnnotation(logTitle = "删除用户")
     public String deleteUser(@PathVariable Long id) {
         users.remove(id);
         return "success";

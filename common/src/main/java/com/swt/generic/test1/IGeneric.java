@@ -1,4 +1,4 @@
-package com.swt.generic;
+package com.swt.generic.test1;
 
 /**
  * @Author: wtshen

@@ -15,24 +15,24 @@ class Building {
 class Hourse extends Building {
 }
 
-public class ClassTypeCapture {
-    Class<?> kind;
-    Map<String, Class<?>> map;
+public class ClassTypeCapture<T> {
+    Class<T> kind;
+    Map<String, Class<T>> map;
 
-    public ClassTypeCapture(Class<?> kind) {
+    public ClassTypeCapture(Class<T> kind) {
         this.kind = kind;
     }
 
-    public ClassTypeCapture(Class<?> kind, Map<String, Class<?>> map) {
+    public ClassTypeCapture(Class<T> kind, Map<String, Class<T>> map) {
         this.kind = kind;
         this.map = map;
     }
 
-    public boolean f(Object obj) {
+    public boolean f(T obj) {
         return kind.isInstance(obj);
     }
 
-    public void addType(String type, Class<?> kind) {
+    public void addType(String type, Class<T> kind) {
         map.put(type, kind);
     }
 
@@ -45,12 +45,12 @@ public class ClassTypeCapture {
     }
 
     public static void main(String[] args) {
-        ClassTypeCapture ctt1 = new ClassTypeCapture(Building.class);
+        ClassTypeCapture<Building> ctt1 = new ClassTypeCapture(Building.class);
         System.out.println(ctt1.f(new Building()));
         System.out.println(ctt1.f(new Hourse()));
 
-        ClassTypeCapture ctt2 = new ClassTypeCapture(Hourse.class);
-        System.out.println(ctt2.f(new Building()));
+        ClassTypeCapture<Hourse> ctt2 = new ClassTypeCapture(Hourse.class);
+        //System.out.println(ctt2.f(new Building())); //error 不符合类型限定,但如果T改成?则没有该问题,或者不不加类型限定<Hourse>
         System.out.println(ctt2.f(new Hourse()));
 
         ClassTypeCapture ct = new ClassTypeCapture(Building.class, new HashMap<>());

@@ -6,7 +6,7 @@ import com.swt.generic.genericinterface.Generator;
 
 /**
  * @Author: wtshen
- * @Description:
+ * @Description: “?”声明的集合，不能往此集合中添加元素，所以它只能作为生产者(亦即它只能被迭代)
  * @Date: Created in 1:17 PM 2020/2/1.
  * @Modified By:
  */

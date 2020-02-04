@@ -1,4 +1,5 @@
 https://blog.csdn.net/s10461/article/details/53941091
+https://blog.csdn.net/qq_39455116/article/details/87879779
 
 泛型的本质
     为了参数化类型
@@ -10,7 +11,7 @@ https://blog.csdn.net/s10461/article/details/53941091
         提高代码重用率
 泛型的三种使用方式：
     泛型类
-        通过泛型可以完成对一组类的操作为外开放相同的接口
+        通过泛型可以完成对一组类的操作对外开放相同的接口
         场景：容器类（List、Set、Map）
     泛型方法
         在调用方法的时候指明泛型的具体类型

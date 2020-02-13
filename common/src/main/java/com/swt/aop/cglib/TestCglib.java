@@ -15,8 +15,11 @@ public class TestCglib {
     public static void main(String[] args) {
         // Enhancer类是CGLib中的一个字节码增强器，它可以方便的对你想要处理的类进行扩展
         Enhancer enhancer1 = new Enhancer();
+        // 设置要代理的目标类
         enhancer1.setSuperclass(TargetObject.class);
+        // 设置要代理的拦截器
         enhancer1.setCallback(new TargetInterceptor());
+        // 生成代理类的实例
         TargetObject targetObject1 = (TargetObject) enhancer1.create();
 
         System.out.println(targetObject1);

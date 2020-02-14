@@ -28,6 +28,7 @@ public class TargetInterceptor implements MethodInterceptor {
         System.out.println("调用前");
         // 调用代理类实例上的proxy方法的父类方法（即实体类TargetObject中对应的方法）
         Object result = methodProxy.invokeSuper(o, objects);
+        System.out.println("method.invoke result:" + method.invoke(new TargetObject(), objects));
         System.out.println(" 调用后" + result);
         return result;
     }

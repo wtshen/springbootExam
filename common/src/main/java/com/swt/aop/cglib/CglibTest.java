@@ -11,7 +11,7 @@ import org.springframework.cglib.proxy.NoOp;
  * @Date: Created in 10:15 PM 2020/2/10.
  * @Modified By:
  */
-public class TestCglib {
+public class CglibTest {
     public static void main(String[] args) {
         // Enhancer类是CGLib中的一个字节码增强器，它可以方便的对你想要处理的类进行扩展
         Enhancer enhancer1 = new Enhancer();

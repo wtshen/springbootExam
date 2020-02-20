@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="person" class="spring.construct.nopara.Person" scope="singleton">
+        <property name="name" value="vip"></property>
+    </bean>
+    <bean id="staff" class="spring.construct.para.Staff">
+        <constructor-arg value="swt"/>
+        <constructor-arg value="25"/>
+    </bean>
+</beans>

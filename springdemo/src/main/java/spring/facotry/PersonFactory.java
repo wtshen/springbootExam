@@ -1,4 +1,4 @@
-package facotry.staticfactory;
+package spring.facotry;
 
 /**
  * @Author: wtshen
@@ -7,6 +7,11 @@ package facotry.staticfactory;
  * @Modified By:
  */
 public class PersonFactory {
+    /**
+     * 静态工厂方法
+     * @param arg
+     * @return
+     */
     public static Person getInstance(String arg) {
         if ("chinese".equalsIgnoreCase(arg)) {
             return new Chinese();
@@ -15,6 +20,11 @@ public class PersonFactory {
         }
     }
 
+    /**
+     * 实例工厂方法
+     * @param arg
+     * @return
+     */
     public Person getPerson(String arg) {
         if ("chinese".equalsIgnoreCase(arg)) {
             return new Chinese();

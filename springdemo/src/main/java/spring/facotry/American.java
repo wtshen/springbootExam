@@ -1,12 +1,12 @@
-package facotry.staticfactory;
+package spring.facotry;
 
 /**
  * @Author: wtshen
  * @Description:
- * @Date: Created in 9:00 AM 2020/2/20.
+ * @Date: Created in 9:01 AM 2020/2/20.
  * @Modified By:
  */
-public class Chinese implements Person {
+public class American implements Person {
     private String msg;
 
     public void setMsg(String msg) {
@@ -16,6 +16,6 @@ public class Chinese implements Person {
     @Override
     public void say() {
         // TODO Auto-generated method stub
-        System.out.println(msg+"，打倒一切美帝国主义");
+        System.out.println(msg+",我要重返亚太地区");
     }
 }

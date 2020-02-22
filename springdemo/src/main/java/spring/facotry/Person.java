@@ -1,4 +1,4 @@
-package facotry.staticfactory;
+package spring.facotry;
 
 /**
  * @Author: wtshen

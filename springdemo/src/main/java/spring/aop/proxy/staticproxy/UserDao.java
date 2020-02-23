@@ -1,4 +1,4 @@
-package spring.aop.proxy;
+package spring.aop.proxy.staticproxy;
 
 /**
  * @Author: wtshen

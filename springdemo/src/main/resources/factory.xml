@@ -3,20 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 定义chinese Bean 由PersonFactory工厂的getPerson方法创建 -->
-    <bean id="chinese" class="spring.facotry.PersonFactory" factory-method="getInstance">
+    <bean id="chinese" class="spring.ioc.facotry.PersonFactory" factory-method="getInstance">
         <!-- 为静态工厂的getPerson()方法传参 -->
         <constructor-arg value="chinese"/>
         <!-- 调用setMsg()方法为msg属性注入参数值 -->
         <property name="msg" value="我是中国人"/>
     </bean>
     <!-- 创建american Bean -->
-    <bean id="american" class="spring.facotry.PersonFactory" factory-method="getInstance">
+    <bean id="american" class="spring.ioc.facotry.PersonFactory" factory-method="getInstance">
         <constructor-arg value="american"/>
         <property name="msg" value="我是美国人"/>
     </bean>
 
     <!--配置工厂实例-->
-    <bean id="personFactory" class="spring.facotry.PersonFactory"/>
+    <bean id="personFactory" class="spring.ioc.facotry.PersonFactory"/>
     <!--通过实例工厂方法配置Bean-->
     <bean id="ch" factory-bean="personFactory" factory-method="getPerson">
         <constructor-arg value="chinese"/>

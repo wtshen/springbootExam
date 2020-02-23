@@ -1,4 +1,4 @@
-package spring.construct.para;
+package spring.ioc.construct.para;
 
 /**
  * @Author: wtshen

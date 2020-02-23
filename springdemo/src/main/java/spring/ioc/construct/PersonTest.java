@@ -1,9 +1,9 @@
-package spring.construct;
+package spring.ioc.construct;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import spring.construct.nopara.Person;
-import spring.construct.para.Staff;
+import spring.ioc.construct.nopara.Person;
+import spring.ioc.construct.para.Staff;
 
 /**
  * @Author: wtshen

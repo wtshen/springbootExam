@@ -1,4 +1,4 @@
-package spring.facotry;
+package spring.ioc.facotry;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

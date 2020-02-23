@@ -1,4 +1,4 @@
-package spring.facotry;
+package spring.ioc.facotry;
 
 /**
  * @Author: wtshen

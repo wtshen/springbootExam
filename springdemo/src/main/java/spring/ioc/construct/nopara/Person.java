@@ -1,4 +1,4 @@
-package spring.construct.nopara;
+package spring.ioc.construct.nopara;
 
 /**
  * @Author: wtshen

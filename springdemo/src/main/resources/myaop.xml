@@ -10,4 +10,10 @@
         <constructor-arg index="0" ref="chinesePerson"></constructor-arg>
         <constructor-arg index="1" ref="customAop"></constructor-arg>
     </bean>
+
+    <bean id="cglibProxyFactory" class="spring.aop.proxy.myaop.CglibProxy"></bean>
+    <bean id="targetProxy" factory-bean="cglibProxyFactory" factory-method="getProxy">
+        <constructor-arg ref="americanPerson"></constructor-arg>
+    </bean>
+
 </beans>

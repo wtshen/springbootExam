@@ -12,7 +12,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class test {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("myaop.xml");
+        System.out.println("=========jdk==========");
         IPerson person = (IPerson) context.getBean("proxyFactory");
         System.out.println("result:" + person.run());
+
+        System.out.println("=========cglib========");
+        AmericanPerson targetProxy = (AmericanPerson) context.getBean("targetProxy");
+        targetProxy.run();
     }
 }

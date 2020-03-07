@@ -1,4 +1,4 @@
-package com.swt.aop.cglib;
+package spring.aop.proxy.dynamic.cglib.demo1;
 
 import org.springframework.cglib.proxy.Callback;
 import org.springframework.cglib.proxy.CallbackFilter;
@@ -29,7 +29,8 @@ public class CglibTest {
 
         System.out.println("拦截器===============================");
         /**
-         * (1)callback1：方法拦截器
+         *
+         (1)callback1：方法拦截器
          (2)NoOp.INSTANCE：这个NoOp表示no operator，即什么操作也不做，代理类直接调用被代理的方法不进行拦截。
          (3)FixedValue：表示锁定方法返回值，无论被代理类的方法返回什么值，回调方法都返回固定值。
          */

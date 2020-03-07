@@ -1,4 +1,4 @@
-package com.swt.aop.cglib;
+package spring.aop.proxy.dynamic.cglib.demo1;
 
 /**
  * @Author: wtshen

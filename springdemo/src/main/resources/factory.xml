@@ -21,4 +21,7 @@
     <bean id="ch" factory-bean="personFactory" factory-method="getPerson">
         <constructor-arg value="chinese"/>
     </bean>
+    <bean id="us" factory-bean="personFactory" factory-method="getPerson">
+        <constructor-arg value="american"></constructor-arg>
+    </bean>
 </beans>

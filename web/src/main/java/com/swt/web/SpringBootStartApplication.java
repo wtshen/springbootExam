@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @Author: wtshen
@@ -14,7 +15,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * @Modified By:
  */
 
-@SpringBootApplication(scanBasePackages = "com.swt")
+@SpringBootApplication(scanBasePackages = "com.swt.*")
 public class SpringBootStartApplication extends SpringBootServletInitializer {
 
     @Override

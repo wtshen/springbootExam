@@ -19,3 +19,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+mystarter:
+  key: "key"
+  value: "value"
+  isopen: "true"

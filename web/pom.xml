@@ -47,5 +47,10 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.my.starter</groupId>
+            <artifactId>mystarter-spring-boot-starter</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 </project>

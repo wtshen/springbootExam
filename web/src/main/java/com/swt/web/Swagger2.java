@@ -31,7 +31,7 @@ public class Swagger2 {
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
-                .pathMapping("/swt")
+                //.pathMapping("/swt")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.swt.web.controller"))
                 .paths(PathSelectors.any())

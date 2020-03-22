@@ -88,8 +88,8 @@
             <version>1.16.10</version>
         </dependency>
 
-        <!--&lt;!&ndash;使用自定义tomcat容器时需要引入&ndash;&gt;
-        <dependency>
+        <!--使用自定义tomcat容器时需要引入-->
+        <!--<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>

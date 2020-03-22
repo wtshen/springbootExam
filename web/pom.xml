@@ -36,18 +36,6 @@
         <!--Swagger2的依赖_end-->
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>com.my.starter</groupId>
             <artifactId>mystarter-spring-boot-starter</artifactId>
             <version>0.0.1</version>

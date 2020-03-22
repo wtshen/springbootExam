@@ -1,6 +1,7 @@
 server:
   port: 8888
-  servlet-path: /swt
+  servlet:
+    context-path: /swt
 
 username: "webdev"
 userage: 39

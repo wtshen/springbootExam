@@ -2,9 +2,6 @@ package com.swt.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @Author: wtshen
@@ -16,13 +13,14 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @SpringBootApplication(scanBasePackages = "com.swt.*")
-public class SpringBootStartApplication extends SpringBootServletInitializer {
+public class SpringBootStartApplication  {
 
+    /*extends SpringBootServletInitializer
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         // 设置启动类,用于独立tomcat运行的入口
         return application.sources(SpringBootStartApplication.class);
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootStartApplication.class, args);

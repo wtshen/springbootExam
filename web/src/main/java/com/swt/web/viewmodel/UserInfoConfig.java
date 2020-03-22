@@ -5,9 +5,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by wtshen on 18/2/17.
+ * prefix = "userinfo-config" 此处前缀必须是 kebab（小写或连字符『-』分隔）
  */
-@ConfigurationProperties(prefix = "userInfo")
 @Component
+@ConfigurationProperties(prefix = "userinfo-config")
 public class UserInfoConfig {
     private String userName;
     private Integer userAge;

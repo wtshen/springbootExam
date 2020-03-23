@@ -59,7 +59,7 @@ public class MySpringApplicationRunListener implements SpringApplicationRunListe
             PropertySource propertySource = new PropertiesPropertySource("my", properties);
             // 将资源添加到项目中
             MutablePropertySources propertySources = environment.getPropertySources();
-            // 通过该api接口可以将配置文件读取到SpringBoot项目中
+            // 通过该api接口可以将配置文件读取到SpringBoot项目中(***核心方法***)
             propertySources.addLast(propertySource);
         } catch (IOException e) {
             e.printStackTrace();

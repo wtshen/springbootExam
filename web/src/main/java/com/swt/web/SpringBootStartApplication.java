@@ -1,5 +1,6 @@
 package com.swt.web;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -14,7 +15,8 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @Modified By:
  */
 
-@SpringBootApplication(scanBasePackages = "com.swt.*")
+@SpringBootApplication(scanBasePackages = {"com.swt.*"})
+@MapperScan(basePackages = "com.swt.web.designpattern.strategybaseondb.mapper")
 public class SpringBootStartApplication extends SpringBootServletInitializer {
 
 
@@ -26,8 +28,8 @@ public class SpringBootStartApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(SpringBootStartApplication.class, args);
-        for (String beanName : run.getBeanDefinitionNames()) {
+        /*for (String beanName : run.getBeanDefinitionNames()) {
             System.out.println("Bean Name:" + beanName);
-        }
+        }*/
     }
 }

@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.strategybaseondb;
+package com.swt.web.designpattern.strategypattern.strategy;
 
 /**
  * @Author: wtshen

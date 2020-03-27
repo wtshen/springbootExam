@@ -1,7 +1,6 @@
-package com.swt.web.designpattern.strategybaseondb.impl;
+package com.swt.web.designpattern.strategypattern.strategy.impl;
 
-import com.swt.web.designpattern.strategybaseondb.PayService;
-import org.springframework.stereotype.Service;
+import com.swt.web.designpattern.strategypattern.strategy.PayService;
 
 /**
  * @Author: wtshen
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
  * @Date: Created in 9:46 PM 2020/3/26.
  * @Modified By:
  */
-@Service("alipay")
 public class AliPayImpl implements PayService {
     @Override
     public String pay() {

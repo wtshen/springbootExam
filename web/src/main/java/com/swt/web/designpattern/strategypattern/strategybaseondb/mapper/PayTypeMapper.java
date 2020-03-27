@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.strategybaseondb.mapper;
+package com.swt.web.designpattern.strategypattern.strategybaseondb.mapper;
 
 import org.apache.ibatis.annotations.Select;
 

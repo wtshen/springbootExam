@@ -1,7 +1,7 @@
-package com.swt.web.designpattern.strategy.factory;
+package com.swt.web.designpattern.strategypattern.strategy.factory;
 
-import com.swt.web.designpattern.strategy.PayService;
-import com.swt.web.designpattern.strategy.enumration.PayType;
+import com.swt.web.designpattern.strategypattern.strategy.PayService;
+import com.swt.web.designpattern.strategypattern.strategy.enumration.PayType;
 import org.springframework.stereotype.Service;
 
 /**

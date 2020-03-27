@@ -1,7 +1,7 @@
-package com.swt.web.designpattern.strategy.context;
+package com.swt.web.designpattern.strategypattern.strategy.context;
 
-import com.swt.web.designpattern.strategy.PayService;
-import com.swt.web.designpattern.strategy.factory.PayFactory;
+import com.swt.web.designpattern.strategypattern.strategy.PayService;
+import com.swt.web.designpattern.strategypattern.strategy.factory.PayFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

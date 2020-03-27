@@ -1,9 +1,10 @@
-package com.swt.web.designpattern.strategy.controller;
+package com.swt.web.designpattern.strategypattern.strategybaseondb.controller;
 
-import com.swt.web.designpattern.strategy.context.PayContext;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.swt.web.designpattern.strategypattern.strategybaseondb.context.PayContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @Author: wtshen
@@ -11,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: Created in 9:58 PM 2020/3/26.
  * @Modified By:
  */
-@RestController
+@RestController(value = "PayControllerBaseOnDB")
 public class PayController {
 
-    @Autowired
+    @Resource(name = "PayContextBaseDB")
     PayContext payContext;
 
-    @RequestMapping("/pay")
+    @RequestMapping("/paybaseondb")
     public String pay(String payCode) {
         return payContext.pay(payCode.toUpperCase());
     }

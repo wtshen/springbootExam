@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.strategy.enumration;
+package com.swt.web.designpattern.strategypattern.strategy.enumration;
 
 /**
  * @Author: wtshen
@@ -7,8 +7,8 @@ package com.swt.web.designpattern.strategy.enumration;
  * @Modified By:
  */
 public enum PayType {
-    ALIPAY("com.swt.web.designpattern.strategy.impl.AliPayImpl"),
-    WECHATPAY("com.swt.web.designpattern.strategy.impl.WeChatPayImpl");
+    ALIPAY("com.swt.web.designpattern.strategypattern.strategy.impl.AliPayImpl"),
+    WECHATPAY("com.swt.web.designpattern.strategypattern.strategy.impl.WeChatPayImpl");
 
     String className;
 

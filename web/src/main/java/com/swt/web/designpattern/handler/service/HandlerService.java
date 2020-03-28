@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.util.Objects;
-
 /**
  * @Author: wtshen
  * @Description:
@@ -20,8 +18,13 @@ import java.util.Objects;
 public class HandlerService {
     @Autowired
     GatewayHandlerMapper gatewayHandlerMapper;
+    GatewayHandler gatewayHandler;
 
     public GatewayHandler getFristGatewayHandler() {
+        // 将对象放到内存中避免每次都从DB加载，以此提高效率
+        if (this.gatewayHandler != null) {
+            return this.gatewayHandler;
+        }
         GatewayHandlerEntity firstGatewayHandler = gatewayHandlerMapper.getFirstGatewayHandler();
         String firstBeanId = firstGatewayHandler.getHandlerId();
         GatewayHandler firstBean = SpringUtils.getBean(firstBeanId, GatewayHandler.class);
@@ -41,6 +44,7 @@ public class HandlerService {
             tempNextBean.setNext(nextBean);
             tempNextBean = nextBean;
         }
+        this.gatewayHandler = firstBean;
         return firstBean;
     }
 }

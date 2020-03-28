@@ -1,7 +1,7 @@
 package com.swt.web.designpattern.strategypattern.strategybaseondb.context;
 
 import com.swt.web.designpattern.strategypattern.strategybaseondb.PayService;
-import com.swt.web.designpattern.strategypattern.strategybaseondb.SpringUtils;
+import com.swt.web.designpattern.SpringUtils;
 import com.swt.web.designpattern.strategypattern.strategybaseondb.mapper.PayTypeEntity;
 import com.swt.web.designpattern.strategypattern.strategybaseondb.mapper.PayTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;

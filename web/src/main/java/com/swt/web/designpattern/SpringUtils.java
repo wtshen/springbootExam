@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.strategypattern.strategybaseondb;
+package com.swt.web.designpattern;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

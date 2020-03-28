@@ -9,7 +9,7 @@ package com.swt.web.designpattern.handler;
 public abstract class GatewayHandler {
     private GatewayHandler gatewayHandler;
 
-    protected abstract void service();
+    public abstract void service();
 
     protected void nextService() {
         if (this.gatewayHandler != null) {
@@ -17,7 +17,7 @@ public abstract class GatewayHandler {
         }
     }
 
-    public void setNextGatewayHandler(GatewayHandler gatewayHandler) {
+    public void setNext(GatewayHandler gatewayHandler) {
         this.gatewayHandler = gatewayHandler;
     }
 }

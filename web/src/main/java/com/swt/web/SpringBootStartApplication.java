@@ -17,7 +17,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication(scanBasePackages = {"com.swt.*"})
 @MapperScan(basePackages = {"com.swt.web.designpattern.strategypattern.strategybaseondb.mapper",
-                            "com.swt.web.designpattern.handler.mapper"})
+                            "com.swt.web.designpattern.handlerpattern.handler.mapper"})
 public class SpringBootStartApplication extends SpringBootServletInitializer {
 
 

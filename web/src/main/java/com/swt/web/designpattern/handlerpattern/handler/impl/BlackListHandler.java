@@ -1,6 +1,6 @@
-package com.swt.web.designpattern.handler.impl;
+package com.swt.web.designpattern.handlerpattern.handler.impl;
 
-import com.swt.web.designpattern.handler.GatewayHandler;
+import com.swt.web.designpattern.handlerpattern.handler.GatewayHandler;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class BlackListHandler extends GatewayHandler {
+    public BlackListHandler() {
+    }
+
     @Override
     public void service() {
         System.out.println("黑名单过滤---");

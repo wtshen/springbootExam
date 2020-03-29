@@ -1,8 +1,8 @@
-package com.swt.web.designpattern.handler.factory;
+package com.swt.web.designpattern.handlerpattern.handler.factory;
 
-import com.swt.web.designpattern.handler.impl.BlackListHandler;
-import com.swt.web.designpattern.handler.impl.ConversationHandler;
-import com.swt.web.designpattern.handler.impl.CurrentLimitHandler;
+import com.swt.web.designpattern.handlerpattern.handler.impl.BlackListHandler;
+import com.swt.web.designpattern.handlerpattern.handler.impl.ConversationHandler;
+import com.swt.web.designpattern.handlerpattern.handler.impl.CurrentLimitHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

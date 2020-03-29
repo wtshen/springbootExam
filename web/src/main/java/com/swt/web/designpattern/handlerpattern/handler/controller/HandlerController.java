@@ -1,9 +1,9 @@
-package com.swt.web.designpattern.handler.controller;
+package com.swt.web.designpattern.handlerpattern.handler.controller;
 
-import com.swt.web.designpattern.handler.GatewayHandler;
-import com.swt.web.designpattern.handler.factory.FactoryHandler;
-import com.swt.web.designpattern.handler.impl.CurrentLimitHandler;
-import com.swt.web.designpattern.handler.service.HandlerService;
+import com.swt.web.designpattern.handlerpattern.handler.GatewayHandler;
+import com.swt.web.designpattern.handlerpattern.handler.factory.FactoryHandler;
+import com.swt.web.designpattern.handlerpattern.handler.impl.CurrentLimitHandler;
+import com.swt.web.designpattern.handlerpattern.handler.service.HandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

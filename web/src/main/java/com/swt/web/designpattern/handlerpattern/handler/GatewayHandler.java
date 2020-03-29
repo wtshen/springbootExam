@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.handler;
+package com.swt.web.designpattern.handlerpattern.handler;
 
 /**
  * @Author: wtshen

@@ -1,9 +1,9 @@
-package com.swt.web.designpattern.handler.service;
+package com.swt.web.designpattern.handlerpattern.handler.service;
 
 import com.swt.web.designpattern.SpringUtils;
-import com.swt.web.designpattern.handler.GatewayHandler;
-import com.swt.web.designpattern.handler.mapper.GatewayHandlerEntity;
-import com.swt.web.designpattern.handler.mapper.GatewayHandlerMapper;
+import com.swt.web.designpattern.handlerpattern.handler.GatewayHandler;
+import com.swt.web.designpattern.handlerpattern.handler.mapper.GatewayHandlerEntity;
+import com.swt.web.designpattern.handlerpattern.handler.mapper.GatewayHandlerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

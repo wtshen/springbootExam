@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.handler.mapper;
+package com.swt.web.designpattern.handlerpattern.handler.mapper;
 
 import org.apache.ibatis.annotations.Select;
 

@@ -11,6 +11,8 @@ import com.swt.web.designpattern.proxypattern.jdkproxy.impl.OrderImpl;
 public class JDKProxyTest {
     public static void main(String[] args) {
         OrderService orderService = new OrderImpl();
+        // 在项目根目录 com\sun\proxy 下生成系统产生的 class 文件
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         OrderService orderServiceProxy = (OrderService) new ProxyFactroy(orderService).getProxy();
         orderServiceProxy.service();
     }

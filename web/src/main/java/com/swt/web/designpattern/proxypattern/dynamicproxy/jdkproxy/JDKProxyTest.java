@@ -1,6 +1,6 @@
-package com.swt.web.designpattern.proxypattern.jdkproxy;
+package com.swt.web.designpattern.proxypattern.dynamicproxy.jdkproxy;
 
-import com.swt.web.designpattern.proxypattern.jdkproxy.impl.OrderImpl;
+import com.swt.web.designpattern.proxypattern.dynamicproxy.jdkproxy.impl.OrderImpl;
 
 /**
  * @Author: wtshen

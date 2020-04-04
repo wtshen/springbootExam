@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.proxypattern.cglibproxy;
+package com.swt.web.designpattern.proxypattern.dynamicproxy.cglibproxy;
 
 import org.springframework.cglib.proxy.Enhancer;
 

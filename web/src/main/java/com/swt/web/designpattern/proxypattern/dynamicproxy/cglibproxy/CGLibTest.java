@@ -1,7 +1,7 @@
-package com.swt.web.designpattern.proxypattern.cglibproxy;
+package com.swt.web.designpattern.proxypattern.dynamicproxy.cglibproxy;
 
-import com.swt.web.designpattern.proxypattern.cglibproxy.impl.OrderServiceImpl;
-import com.swt.web.designpattern.proxypattern.cglibproxy.impl.PayServiceImpl;
+import com.swt.web.designpattern.proxypattern.dynamicproxy.cglibproxy.impl.OrderServiceImpl;
+import com.swt.web.designpattern.proxypattern.dynamicproxy.cglibproxy.impl.PayServiceImpl;
 
 /**
  * @Author: wtshen

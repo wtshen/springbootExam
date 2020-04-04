@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.proxypattern.cglibproxy.impl;
+package com.swt.web.designpattern.proxypattern.dynamicproxy.cglibproxy.impl;
 
 /**
  * @Author: wtshen

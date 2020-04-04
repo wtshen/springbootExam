@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.proxypattern.jdkproxy;
+package com.swt.web.designpattern.proxypattern.dynamicproxy.jdkproxy;
 
 import java.lang.reflect.Proxy;
 

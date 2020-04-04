@@ -11,9 +11,9 @@ import java.lang.reflect.Method;
  * @Modified By:
  */
 public class $Proxy0 implements OrderService {
-    JDKInvocationHandlerImpl h;
+    JDKInvocationHandlerService h;
 
-    public $Proxy0(JDKInvocationHandlerImpl h) {
+    public $Proxy0(JDKInvocationHandlerService h) {
         this.h = h;
     }
 

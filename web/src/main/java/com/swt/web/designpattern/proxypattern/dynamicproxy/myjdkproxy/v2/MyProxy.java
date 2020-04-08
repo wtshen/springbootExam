@@ -22,28 +22,43 @@ public class MyProxy {
                                          JDKInvocationHandlerService jdkInvocationHandlerService) {
         // 1.拼接代理类的源代码
         Method[] methods = classInfo.getMethods();
-        String proxyClass = "package com.swt.web.designpattern.proxypattern.dynamicproxy.myjdkproxy.v2.proxy;\n" +
+       /* String proxyClass = "package com.swt.web.designpattern.proxypattern.dynamicproxy.myjdkproxy.v2.proxy;\n" +
                 "import java.lang.reflect.Method;\n" +
                 "import com.swt.web.designpattern.proxypattern.dynamicproxy.myjdkproxy.v2.JDKInvocationHandlerService;\n" +
                 "import com.swt.web.designpattern.proxypattern.dynamicproxy.myjdkproxy.v2.OrderService;\n" +
-                "/**\n" +
+                "*\n" +
                 " * @Author: wtshen\n" +
                 " * @Description:\n" +
                 " * @Date: Created in 4:13 PM 2020/4/4.\n" +
                 " * @Modified By:\n" +
-                " */\n" +
+                " \n" +
                 "public class $Proxy0 implements OrderService {\n" +
                 "    JDKInvocationHandlerService h;\n" +
                 "    public $Proxy0(JDKInvocationHandlerService h) {\n" +
                 "        this.h = h;\n" +
-                "    }" + getMethodString(methods, classInfo) + "}";
+                "    }" + getMethodString(methods, classInfo) + "}";*/
+
+        String currentPackageName = MyProxy.class.getPackage().getName();
+        StringBuilder proxyClass = new StringBuilder();
+        proxyClass.append("package ").append(currentPackageName).append(".proxy;\n");
+        proxyClass.append("import java.lang.reflect.Method;\n");
+        proxyClass.append("import ").append(currentPackageName).append(".JDKInvocationHandlerService;\n");
+        proxyClass.append("import ").append(currentPackageName).append(".OrderService;\n");
+        proxyClass.append("public class $Proxy0 implements OrderService {\n");
+        proxyClass.append("    JDKInvocationHandlerService h;\n");
+        proxyClass.append("    public $Proxy0(JDKInvocationHandlerService h) {\n");
+        proxyClass.append("        this.h = h;\n");
+        proxyClass.append("    }").append(getMethodString(methods, classInfo)).append("}");
+
 
         try {
             // 2.写入到本地文件中
-            String fileName = "/Users/wtshen/MyProject/springbootExam/web/src/main/java/com/swt/web/designpattern/proxypattern/dynamicproxy/myjdkproxy/v2/proxy/$Proxy0.java";
+            String filePath = MyProxy.class.getResource(".").getPath().replaceAll("/target/classes/", "/src/main/java/");
+            //String fileName = "/Users/wtshen/MyProject/springbootExam/web/src/main/java/com/swt/web/designpattern/proxypattern/dynamicproxy/myjdkproxy/v2/proxy/$Proxy0.java";
+            String fileName = filePath + "proxy/$Proxy0.java";
             File f = new File(fileName);
             FileWriter fw = new FileWriter(f);
-            fw.write(proxyClass);
+            fw.write(proxyClass.toString());
             fw.flush();
             fw.close();
 
@@ -56,24 +71,14 @@ public class MyProxy {
             fileManager.close();
 
             // 4. 使用ClassLoader将$Proxy0.class 读取到内存中
-            Class<?> $Proxy0 = classLoader.loadClass("com.swt.web.designpattern.proxypattern.dynamicproxy.myjdkproxy.v2.proxy.$Proxy0");
+            Class<?> $Proxy0 = classLoader.loadClass(currentPackageName + ".proxy.$Proxy0");
 
             // 5. 指明初始化有参构造函数
             Constructor<?> constructor = $Proxy0.getConstructor(JDKInvocationHandlerService.class);
             Object o = constructor.newInstance(jdkInvocationHandlerService);
             return o;
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
         return null;

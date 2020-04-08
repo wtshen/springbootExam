@@ -30,8 +30,6 @@ public class JavaClassLoader extends ClassLoader {
             InputStream is = new FileInputStream(path + name.replace(".", "/") + ".class");
             byte[] bytes = IOUtils.toByteArray(is);
             return defineClass(name, bytes, 0, bytes.length);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

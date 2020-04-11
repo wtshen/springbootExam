@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @Author: wtshen
@@ -17,7 +18,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication(scanBasePackages = {"com.swt.*"})
 @MapperScan(basePackages = {"com.swt.web.designpattern.strategypattern.strategybaseondb.mapper",
-                            "com.swt.web.designpattern.handlerpattern.handler.mapper"})
+        "com.swt.web.designpattern.handlerpattern.handler.mapper"})
+@EnableAsync
 public class SpringBootStartApplication extends SpringBootServletInitializer {
 
 

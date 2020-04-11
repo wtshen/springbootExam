@@ -1,9 +1,9 @@
-package com.swt.web.designpattern.adapterpattern;
+package com.swt.web.designpattern.adapterpattern.classadapter;
 
 /**
  * @Author: wtshen
  * @Description:
- * @Date: Created in 6:27 PM 2020/4/11.
+ * @Date: Created in 6:46 PM 2020/4/11.
  * @Modified By:
  */
 public class Adaptee {

@@ -1,4 +1,4 @@
-package com.swt.web.designpattern.adapterpattern;
+package com.swt.web.designpattern.adapterpattern.objectadapter;
 
 /**
  * @Author: wtshen

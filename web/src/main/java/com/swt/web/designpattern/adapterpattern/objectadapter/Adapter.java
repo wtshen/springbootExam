@@ -15,7 +15,9 @@ public class Adapter implements Target {
 
     @Override
     public void method1() {
+        System.out.println("对代理者进行功能增强---Start");
         this.source.method1();
+        System.out.println("对代理者进行功能增强---End");
     }
 
     @Override

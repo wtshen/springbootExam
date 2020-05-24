@@ -40,5 +40,13 @@
             <artifactId>mystarter-spring-boot-starter</artifactId>
             <version>0.0.1</version>
         </dependency>
+
+        <!--JMockit-->
+        <dependency>
+            <groupId>org.jmockit</groupId>
+            <artifactId>jmockit</artifactId>
+            <version>1.38</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

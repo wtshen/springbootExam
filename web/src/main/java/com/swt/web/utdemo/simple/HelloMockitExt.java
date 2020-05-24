@@ -12,7 +12,6 @@ import java.util.Locale;
  */
 @Service
 public class HelloMockitExt {
-    // 向JMockit打招呼
     public String sayHello() {
         Locale locale = Locale.getDefault();
         if (locale == null) {

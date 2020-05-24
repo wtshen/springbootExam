@@ -3,10 +3,8 @@ package com.swt.web.utdemo;
 import com.swt.web.SpringBootStartApplication;
 import com.swt.web.utdemo.simple.HelloMockit;
 import com.swt.web.utdemo.simple.HelloMockitExt;
-import mockit.Expectations;
-import mockit.Mock;
-import mockit.MockUp;
-import mockit.Mocked;
+import com.swt.web.utdemo.simple.HelloService;
+import mockit.*;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,10 +29,14 @@ public class HelloMockitTest {
     HelloMockit helloMockit;
     @Autowired
     HelloMockitExt helloMockitExt;
-
     @Rule
     public ExpectedException expectedEx = ExpectedException.none();
 
+    //<editor-fold desc="#测试类中方法">
+
+    /**
+     * 由于由静态方法所以构建一个静态类继承Mockup
+     */
     static class LocaleExt extends MockUp<Locale> {
         static int type;
 
@@ -52,6 +54,11 @@ public class HelloMockitTest {
         }
     }
 
+    /**
+     * Mocked+Expectations 测试静态方法
+     *
+     * @param locale
+     */
     @Test
     public void sayHelloTest_CN(@Mocked Locale locale) {
         new Expectations() {
@@ -65,6 +72,9 @@ public class HelloMockitTest {
     }
 
 
+    /**
+     * Mockup+Mock
+     */
     @Test
     public void sayHelloTest_EN() {
         new LocaleExt(2);
@@ -87,5 +97,46 @@ public class HelloMockitTest {
         // mock中message中包含expectMessage则符合
         expectedEx.expectMessage("not found object");
         helloMockit.callSayHello();
+    }
+    //</editor-fold>
+
+    static class HelloMockitMockup extends MockUp<HelloMockit> {
+        @Mock
+        private Integer privateMethod() {
+            return 10;
+        }
+        @Mock
+        public static int staticMethod() {
+            return 20;
+        }
+    }
+
+    /**
+     * @param helloService
+     * @Capturing mock接口实现，除了具有@Mocked的特点，还能影响它的子类/实现类
+     */
+    @Test
+    public void callSayHelloTest(@Capturing HelloService helloService, @Mocked HelloMockitExt helloMockitExtLocal) {
+        new Expectations() {
+            {
+                helloMockitExtLocal.sayHello();
+                result = "";
+                helloService.m1();
+                result = 10;
+                HelloMockit.staticMethod();
+                result = 20;
+            }
+        };
+
+        new HelloMockitMockup();
+        // 测试私有方法
+        Assert.assertEquals(10, helloMockit.callPrivateMethod());
+        // 测试静态方法
+        Assert.assertEquals(20,HelloMockit.staticMethod());
+        // 测试异常
+        expectedEx.expect(IllegalArgumentException.class);
+        // 测试接口实现
+        Integer result = helloMockit.callHelloService(10);
+        Assert.assertEquals(10, result.intValue());
     }
 }

@@ -1,7 +1,10 @@
 package com.swt.collection;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * @Author: wtshen
@@ -10,7 +13,7 @@ import lombok.EqualsAndHashCode;
  * @Modified By:
  */
 @Data
-public class UserInfo {
+public class UserInfo implements Serializable {
     private Integer id;
     private double salary;
     private String name;

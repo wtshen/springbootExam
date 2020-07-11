@@ -27,8 +27,8 @@ public class RedisTest {
         userInfo.setSalary(100000.0D);
         userInfo.setName("swt");
         userInfo.setAge(40);
-        redisUtil.set("1", userInfo);
+        redisUtil.set("userinfo_3", userInfo);
 
-        System.out.println(redisUtil.get(userInfo.getId().toString()));
+        System.out.println(redisUtil.get("userinfo_3"));
     }
 }
